@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.thciwei.loafblog.blog.dao.InfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.thciwei.loafblog.blog.entity.InfoEntity" id="infoMap">
+        <result property="id" column="id"/>
+        <result property="mail" column="mail"/>
+        <result property="content" column="content"/>
+        <result property="isview" column="isView"/>
+    </resultMap>
+    <select id="getNoViewCount" resultType="java.lang.Integer">
+        select count(*) from info where isView=0
+    </select>
+
+
+</mapper>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>友链添加成功邮件</title>
+</head>
+<body>
+欢迎<span th:text="${name}"></span>,您的信息我已经收到啦,您的信息如下
+<hr/>
+<img src="https://gitee.com/thciweicloud/tmp/raw/master/tutu.jpg" alt="">
+<h2>站点名称</h2>
+<hr/>
+<p th:text="${name}"></p>
+<h2>站点链接</h2>
+<hr/>
+<p th:text="${link}"></p>
+
+<h2>站点介绍</h2>
+<hr/>
+<p th:text="${descp}"></p>
+<p>有事情,在站点首页通过gitee、github、QQ 联系我</p>
+
+</body>
+</html>

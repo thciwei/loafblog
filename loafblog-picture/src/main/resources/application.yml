@@ -1,0 +1,63 @@
+server:
+  port: 8000
+unisms:
+  ACCESS_KEY_ID: xx
+  signature: 伞的故事
+  templateId: 48f48007
+spring:
+  application:
+    name: loafblog-picture
+  cloud:
+    alicloud:
+      access-key: xx
+      secret-key: xx
+      oss:
+        endpoint: oss-cn-beijing.aliyuncs.com
+        bucket: gulimall-wqs
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.145.132:3306/loafblog_admin?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler: #采样率，默认0.1 即10条消息有一条被记录
+      rate: 1
+  zipkin:
+    base-url: http://192.168.145.132:9411 #地址
+    enabled: true
+    sender: #追踪消息类型
+      type: rabbit
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 192.168.145.132
+    port: 5672
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+fastdfs:
+  nginx:
+    host: http://8.129.122.160/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true

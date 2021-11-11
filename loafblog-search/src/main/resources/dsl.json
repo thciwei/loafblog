@@ -1,0 +1,40 @@
+{
+  "from": 0,
+  "size": 8,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "multi_match": {
+            "query": "linux",
+            "fields": [
+              "title",
+              "summary",
+              "mdcontent"
+            ]
+          }
+        }
+      ],
+      "filter": {
+        "term": {
+          "state": {
+            "value": 0,
+            "boost": 1
+          }
+        }
+      }
+    }
+  },
+  "highlight": {
+    "pre_tags": [
+      "<b style='color:#b4251d'>"
+    ],
+    "post_tags": [
+      "</b>"
+    ],
+    "fields": {
+      "title": {},
+      "summary": {}
+    }
+  }
+}

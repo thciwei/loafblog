@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.thciwei.loafblog.blog.dao.ArticleDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.thciwei.loafblog.blog.entity.ArticleEntity" id="articleMap">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="tid" column="tid"/>
+        <result property="cid" column="cid"/>
+        <result property="mdcontent" column="mdContent"/>
+        <result property="htmlcontent" column="htmlContent"/>
+        <result property="summary" column="summary"/>
+        <result property="image" column="image"/>
+        <result property="publishdate" column="publishDate"/>
+        <result property="isoriginal" column="isOriginal"/>
+        <result property="iscomment" column="isComment"/>
+        <result property="number" column="number"/>
+        <result property="state" column="state"/>
+    </resultMap>
+
+    <resultMap id="articleVo" type="com.thciwei.loafblog.blog.vo.ArticleVo">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="mdcontent" column="mdContent"/>
+        <result property="htmlcontent" column="htmlContent"/>
+        <result property="summary" column="summary"/>
+        <result property="image" column="image"/>
+        <result property="publishdate" column="publishDate"/>
+        <result property="isoriginal" column="isOriginal"/>
+        <result property="iscomment" column="isComment"/>
+        <result property="number" column="number"/>
+        <result property="state" column="state"/>
+        <result property="cateName" column="cateName"/>
+        <result property="tagName" column="tagName"/>
+    </resultMap>
+    <insert id="saveArticle" parameterType="com.thciwei.loafblog.blog.entity.ArticleEntity" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+insert into article(title,mdcontent,htmlcontent,tid,cid,summary,image,isoriginal,iscomment,number,state,publishdate) values(#{title},#{mdcontent},#{htmlcontent},#{tid},#{cid},#{summary},#{image},#{isoriginal},#{iscomment},#{number},#{state},#{publishdate})
+    </insert>
+    <select id="getTagAndCategory" resultMap="articleVo">
+        select DISTINCT a.id id,a.title title,a.mdcontent mdcontent,a.htmlcontent htmlcontent,a.summary summary,a.image image,a.publishdate publishdate,a.isoriginal isoriginal,a.iscomment iscomment,a.number number,a.state state,c.cateName cateName,t.tagName tagName from article a,tags t,category c,article_category ac,article_tags att where a.cid=ac.cid and  ac.cid=c.id and a.tid=att.tid and att.tid=t.id order by a.publishdate
+</select>
+    <select id="getBlog" resultType="com.thciwei.loafblog.blog.vo.ArticleVo">
+        select a.*,c.cateName,t.tagName from article a,tags t,category c,article_category ac,article_tags att where a.cid=ac.cid and  ac.cid=c.id and a.tid=att.tid and att.tid=t.id  and a.title like concat('%',#{title},'%')
+    </select>
+
+
+</mapper>

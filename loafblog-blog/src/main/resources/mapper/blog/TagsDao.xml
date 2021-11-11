@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.thciwei.loafblog.blog.dao.TagsDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.thciwei.loafblog.blog.entity.TagsEntity" id="tagsMap">
+        <result property="id" column="id"/>
+        <result property="tagname" column="tagName"/>
+        <result property="date" column="date"/>
+    </resultMap>
+    <select id="getNames" resultType="java.lang.String">
+        select tagName from tags
+    </select>
+    <select id="getValues" resultType="com.thciwei.loafblog.blog.vo.DataVo">
+        select count(*) value,t.tagName name  from article a,tags t where a.tid=t.id GROUP BY t.tagName
+    </select>
+
+
+</mapper>

@@ -1,0 +1,36 @@
+server:
+  port: 8150
+spring:
+  application:
+    name: loafblog-auth-server
+  redis:
+    host: 192.168.145.132
+    port: 6379
+
+logging:
+  level:
+    com.thciwei.loafblog.auth: debug
+# 解决feign调用服务超时
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 10000
+        read-timeout: 10000
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true

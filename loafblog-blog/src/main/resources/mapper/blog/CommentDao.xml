@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.thciwei.loafblog.blog.dao.CommentDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.thciwei.loafblog.blog.entity.CommentEntity" id="commentMap">
+        <result property="content" column="content"/>
+        <result property="createtime" column="createTime"/>
+        <result property="fromuseravatar" column="fromUserAvatar"/>
+        <result property="fromuserid" column="fromUserId"/>
+        <result property="fromusername" column="fromUserName"/>
+        <result property="id" column="id"/>
+        <result property="parentid" column="parentId"/>
+        <result property="postid" column="postId"/>
+        <result property="touseravatar" column="toUserAvatar"/>
+        <result property="touserid" column="toUserId"/>
+        <result property="tousername" column="toUserName"/>
+    </resultMap>
+    <select id="getParentComments" resultType="com.thciwei.loafblog.blog.entity.CommentEntity" >
+        select * from `comment` where parentId is null and postId=#{postId}
+    </select>
+
+
+</mapper>

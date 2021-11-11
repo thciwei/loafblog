@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.thciwei.loafblog.blog.dao.CategoryDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.thciwei.loafblog.blog.entity.CategoryEntity" id="categoryMap">
+        <result property="id" column="id"/>
+        <result property="catename" column="cateName"/>
+        <result property="date" column="date"/>
+    </resultMap>
+    <select id="getValues" resultType="com.thciwei.loafblog.blog.vo.DataVo">
+        select count(*) value,c.cateName name  from article a,category c where a.cid=c.id GROUP BY c.cateName
+</select>
+    <select id="getNames" resultType="java.lang.String">
+        select cateName from category
+    </select>
+
+
+</mapper>

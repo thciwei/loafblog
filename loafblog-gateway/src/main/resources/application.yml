@@ -1,0 +1,63 @@
+server:
+  port: 88
+  # 解决常发500
+  ssl:
+    enabled: false
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: blog_routes  # 博客管理断言
+          uri: lb://loafblog-blog
+          predicates:
+            - Path=/api/blog/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: picture_routes  # oss存储断言
+          uri: lb://loafblog-picture
+          predicates:
+            - Path=/api/picture/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: search_routes # 搜索断言
+          uri: lb://loafblog-search
+          predicates:
+            - Path=/api/search/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: auth_routes # auth认证断言
+          uri: lb://loafblog-auth-server
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: admin_routes
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*),/renren-fast/$\{segment}
+        - id: loafblog_host_routes
+          uri: lb://loafblog-blog
+          predicates:
+            - Host=loafblog.com
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+

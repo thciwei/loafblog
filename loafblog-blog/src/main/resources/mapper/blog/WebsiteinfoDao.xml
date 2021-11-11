@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.thciwei.loafblog.blog.dao.WebsiteinfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.thciwei.loafblog.blog.entity.WebsiteinfoEntity" id="websiteinfoMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="link" column="link"/>
+        <result property="descp" column="descp"/>
+        <result property="mail" column="mail"/>
+    </resultMap>
+    <insert id="insertGetId" useGeneratedKeys="true" keyProperty="id" parameterType="com.thciwei.loafblog.blog.entity.WebsiteinfoEntity">
+        insert into websiteInfo(name,link,descp,mail)  values(#{name},#{link},#{descp},#{mail})
+    </insert>
+
+
+</mapper>

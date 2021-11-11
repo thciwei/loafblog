@@ -1,0 +1,52 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 30000
+logging:
+  level:
+    com.thciwei.loafblog.mail: debug
+spring:
+  mail:
+    protocol: smtp
+    host: smtp.qq.com
+    default-encoding: UTF-8
+    password: zreoenxuafzjgfig
+    username: xxxx
+    port: 587
+    properties:
+      mail:
+        stmp:
+          socketFactory.class: javax.net.ssl.SSLSocketFactory
+        debug: true
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 8.129.122.160
+    port: 5672
+    listener:
+      simple:
+        acknowledge-mode: manual    #手动确认消息 manual,预加载消息数量 prefetch
+        prefetch: 100
+  redis:
+    database: 0
+    host: 192.168.145.132
+    port: 6379
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  #    listener:
+  #      simple:
+  #        acknowledge-mode: manual
+  #        prefetch: 100
+  #    publisher-returns: true          #开启消息确认
+#    publisher-confirms: true        #支持消息发送失败返回队列

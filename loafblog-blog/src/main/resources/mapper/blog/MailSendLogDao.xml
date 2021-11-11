@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.thciwei.loafblog.blog.dao.MailSendLogDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.thciwei.loafblog.blog.entity.MailSendLogEntity" id="mailSendLogMap">
+        <result property="msgId" column="msgId"/>
+        <result property="websiteId" column="websiteId"/>
+        <result property="status" column="status"/>
+        <result property="routeKey" column="routeKey"/>
+        <result property="exchange" column="exchange"/>
+        <result property="count" column="count"/>
+        <result property="tryTime" column="tryTime"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
+    </resultMap>
+    <insert id="insertMail">
+        insert into mail_send_log (msgId,websiteId,routeKey,exchange,tryTime,createTime) values (#{msgId},#{websiteId},#{routeKey},#{exchange},#{tryTime},#{createTime});
+    </insert>
+    <update id="updateMailSendLogStatus">
+        update mail_send_log set status=#{status} where msgId=#{msgId}
+    </update>
+    <update id="updateCount">
+        update mail_send_log set count =count +1,updateTime=#{date} where msgId=#{msgId}
+    </update>
+    <select id="getMailSendLogsByStatus" resultType="com.thciwei.loafblog.blog.entity.MailSendLogEntity">
+        select * from mail_send_log where status=0 and Trytime &lt; sysdate()
+    </select>
+
+
+</mapper>
