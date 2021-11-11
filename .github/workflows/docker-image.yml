@@ -28,7 +28,7 @@ jobs:
           mvn clean
 
           echo '======= 开始mvn install&&package ======='
-          mvn install "-DskipTests=true" &&  mvn package "-DskipTests=true"
+          mvn install -DskipTests=true &&  mvn package -DskipTests=true
 
       - name: Build vue web
         run: |
