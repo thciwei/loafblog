@@ -96,7 +96,7 @@ jobs:
 
       - name: push Images to DockerHub
         with:
-          tags: lastest
+          tags: "lastest"
         run: |
           echo '======= 开始上传镜像 ======='
           echo '======= 开始上传loaf-auth-server ======='
