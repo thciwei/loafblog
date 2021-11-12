@@ -121,4 +121,4 @@ jobs:
 #          echo '======= 开始上传renren-fast ======='
 #          docker push thciwei/renren-fast
 
-          echo '=====镜像上传结束====='
+#          echo '=====镜像上传结束====='
