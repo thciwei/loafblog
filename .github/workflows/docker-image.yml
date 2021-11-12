@@ -95,8 +95,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: push Images to DockerHub
+        uses: docker/build-push-action@v2
         with:
-          tags: "lastest"
+          push: true
+          tags: user/app:latest
         run: |
           echo '======= 开始上传镜像 ======='
           echo '======= 开始上传loaf-auth-server ======='
