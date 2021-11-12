@@ -5,7 +5,7 @@
 	<groupId>io.renren</groupId>
 	<artifactId>renren-fast</artifactId>
 	<version>3.0.0</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 
 	<description>renren-fast</description>
@@ -335,7 +335,6 @@
 	</build>
 
 	<repositories>
-
 		<repository>
 			<id>public</id>
 			<name>aliyun nexus</name>
