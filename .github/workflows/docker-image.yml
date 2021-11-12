@@ -5,8 +5,7 @@ name: Master-Docker-Images
 on:
   push:
     branches: master
-    tags:
-      - v*
+
 
 
 jobs:
@@ -96,6 +95,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: push Images to DockerHub
+        with:
+          tags: lastest
         run: |
           echo '======= 开始上传镜像 ======='
           echo '======= 开始上传loaf-auth-server ======='
