@@ -94,33 +94,30 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: user/app:latest
+
 
       - name: push Images to DockerHub
         run: |
           echo '======= 开始上传镜像 ======='
           echo '======= 开始上传loaf-auth-server ======='
-          docker push thciwei/loaf-auth-server
+          docker push thciwei/loaf-auth-server:latest
 
           echo '======= 开始上传loaf-blog ======='
-          docker push thciwei/loaf-blog
+          docker push thciwei/loaf-blog:latest
 
           echo '======= 开始上传loaf-gateway ======='
-          docker push thciwei/loaf-gateway
+          docker push thciwei/loaf-gateway:latest
 
           echo '======= 开始上传loaf-mail ======='
-          docker push thciwei/loaf-mail
+          docker push thciwei/loaf-mail:latest
 
           echo '======= 开始上传loaf-picture ======='
-          docker push thciwei/loaf-picture
+          docker push thciwei/loaf-picture:latest
 
           echo '======= 开始上传loaf-search ======='
-          docker push thciwei/loaf-search
+          docker push thciwei/loaf-search:latest
 
           echo '======= 开始上传renren-fast ======='
-          docker push thciwei/renren-fast
+          docker push thciwei/renren-fast:latest
 
           echo '=====镜像上传结束====='
