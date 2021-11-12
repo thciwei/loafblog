@@ -107,12 +107,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
-		<!--oracle驱动-->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>${oracle.version}</version>
-		</dependency>
+<!--		&lt;!&ndash;oracle驱动&ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>com.oracle</groupId>-->
+<!--			<artifactId>ojdbc6</artifactId>-->
+<!--			<version>${oracle.version}</version>-->
+<!--		</dependency>-->
 		<!--mssql驱动-->
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
