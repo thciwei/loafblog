@@ -101,7 +101,8 @@ jobs:
           pwd
           echo '======= 开始上传镜像 ======='
           echo '======= 开始上传loaf-auth-server ======='
-          docker push thciwei/loaf-auth-server
+          docker tag thciwei/loaf-auth-server:0.0.1
+          docker push thciwei/loaf-auth-server:0.0.1
 
 #          echo '======= 开始上传loaf-blog ======='
 #          docker push thciwei/loaf-blog
