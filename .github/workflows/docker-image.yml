@@ -100,24 +100,24 @@ jobs:
         run: |
           echo '======= 开始上传镜像 ======='
           echo '======= 开始上传loaf-auth-server ======='
-          docker push loafblog/thciwei/loaf-auth-server:latest
+          docker push thciwei/loaf-auth-server
 
           echo '======= 开始上传loaf-blog ======='
-          docker push loafblog/thciwei/loaf-blog:latest
+          docker push thciwei/loaf-blog
 
           echo '======= 开始上传loaf-gateway ======='
-          docker push loafblog/thciwei/loaf-gateway:latest
+          docker push thciwei/loaf-gateway
 
           echo '======= 开始上传loaf-mail ======='
-          docker push loafblog/thciwei/loaf-mail:latest
+          docker push thciwei/loaf-mail
 
           echo '======= 开始上传loaf-picture ======='
-          docker push loafblog/thciwei/loaf-picture:latest
+          docker push thciwei/loaf-picture
 
           echo '======= 开始上传loaf-search ======='
-          docker push loafblog/thciwei/loaf-search:latest
+          docker push thciwei/loaf-search
 
           echo '======= 开始上传renren-fast ======='
-          docker push loafblog/thciwei/renren-fast:latest
+          docker push thciwei/renren-fast
 
           echo '=====镜像上传结束====='
