@@ -1,9 +1,12 @@
 name: Master-Docker-Images
 
+
+
 on:
   push:
     branches: master
-
+    tags:
+      - v*
 
 
 jobs:
@@ -96,24 +99,24 @@ jobs:
         run: |
           echo '======= 开始上传镜像 ======='
           echo '======= 开始上传loaf-auth-server ======='
-          docker push thciwei/loaf-auth-server:0.0.1
+          docker push thciwei/loaf-auth-server
 
           echo '======= 开始上传loaf-blog ======='
-          docker push thciwei/loaf-blog:0.0.1
+          docker push thciwei/loaf-blog
 
           echo '======= 开始上传loaf-gateway ======='
-          docker push thciwei/loaf-gateway:0.0.1
+          docker push thciwei/loaf-gateway
 
           echo '======= 开始上传loaf-mail ======='
-          docker push thciwei/loaf-mail:0.0.1
+          docker push thciwei/loaf-mail
 
           echo '======= 开始上传loaf-picture ======='
-          docker push thciwei/loaf-picture:0.0.1
+          docker push thciwei/loaf-picture
 
           echo '======= 开始上传loaf-search ======='
-          docker push thciwei/loaf-search:0.0.1
+          docker push thciwei/loaf-search
 
           echo '======= 开始上传renren-fast ======='
-          docker push thciwei/renren-fast:0.0.1
+          docker push thciwei/renren-fast
 
           echo '=====镜像上传结束====='
