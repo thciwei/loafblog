@@ -126,9 +126,7 @@
                 <version>1.2.0</version>
                 <configuration>
                     <imageName>thciwei/${project.artifactId}</imageName>
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                    </imageTags>
+                    <baseImage>java</baseImage>
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                     <!-- copy the service's jar file from target into the root directory of the image -->
                     <resources>

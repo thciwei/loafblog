@@ -128,11 +128,8 @@
                 <version>1.2.0</version>
                 <configuration>
                     <imageName>thciwei/${project.artifactId}</imageName>
-
+                    <baseImage>java</baseImage>
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                    </imageTags>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
