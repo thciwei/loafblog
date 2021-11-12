@@ -2,7 +2,7 @@ package com.thciwei.loafblog.mail.receiver;
 
 import com.rabbitmq.client.Channel;
 import com.thciwei.common.constant.MailConstants;
-import com.thciwei.loafblog.blog.entity.WebsiteinfoEntity;
+import com.thciwei.common.entity.WebsiteinfoEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.support.AmqpHeaders;
