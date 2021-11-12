@@ -127,6 +127,9 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.0</version>
                 <configuration>
+                    <imageTags>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
                     <!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
                     <imageName>thciwei/${project.artifactId}</imageName>
                     <dockerDirectory>${project.basedir}/src/main/resources</dockerDirectory>
