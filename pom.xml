@@ -21,7 +21,7 @@
         <module>loafblog-picture</module>
         <module>loafblog-search</module>
         <module>renren-fast</module>
-        <module>renren-generator</module>
+<!--        <module>renren-generator</module>-->
         <module>loafblog-common</module>
         <module>loafblog-mail</module>
         <module>loafblog-auth-server</module>
