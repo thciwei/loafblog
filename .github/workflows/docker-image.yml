@@ -59,27 +59,27 @@ jobs:
           cd ..
 
           echo '======= 开始构建loafblog-gateway ======='
-          cd ./loafblog/loafblog-gateway
+          cd loafblog-gateway
           mvn docker:build
           cd ..
 
           echo '======= 开始构建loafblog-mail ======='
-          cd ./loafblog/loafblog-mail
+          cd loafblog-mail
           mvn docker:build
           cd ..
 
           echo '======= 开始构建loafblog-picture ======='
-          cd ./loafblog/loafblog-picture
+          cd loafblog-picture
           mvn docker:build
           cd ..
 
           echo '======= 开始构建loafblog-search ======='
-          cd ./loafblog/loafblog-search
+          cd loafblog-search
           mvn docker:build
           cd ..
 
           echo '======= 开始构建renren-fast ======='
-          cd ./loafblog/renren-fast
+          cd renren-fast
           mvn docker:build
           cd ..
 
