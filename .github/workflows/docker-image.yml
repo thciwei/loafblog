@@ -99,7 +99,7 @@ jobs:
       - name: push Images to DockerHub
         run: |
           pwd
-          docker images ls
+          ls
           echo '======= 开始上传镜像 ======='
           echo '======= 开始上传loaf-auth-server ======='
           docker push thciwei/loaf-auth-server
