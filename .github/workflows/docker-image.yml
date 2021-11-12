@@ -34,20 +34,20 @@ jobs:
           echo '======= 开始mvn install&&package ======='
           mvn install -DskipTests=true &&  mvn package -DskipTests=true
 
-#      - name: Build vue web
-#        run: |
-#          echo '======= 开始构建前端镜像 ======='
-#          echo '======= 开始构建loafblog_vue ======='
-#          cd ./loafblog_vue
-#          npm install
-#          npm run build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog_vue_web ======='
-#          cd ./loafblog_vue_web
-#          npm install
-#          npm run build
-#          cd ..
+      - name: Build vue web
+        run: |
+          echo '======= 开始构建前端镜像 ======='
+          echo '======= 开始构建loafblog_vue ======='
+          cd ./loafblog_vue
+          npm install
+          npm run build
+          cd ..
+
+          echo '======= 开始构建loafblog_vue_web ======='
+          cd ./loafblog_vue_web
+          npm install
+          npm run build
+          cd ..
 
       - name: Build Server Images
         run: |
@@ -57,35 +57,35 @@ jobs:
           mvn docker:build
           cd ..
 
-#          echo '======= 开始构建loafblog-blog ======='
-#          cd loafblog-blog
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog-gateway ======='
-#          cd loafblog-gateway
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog-mail ======='
-#          cd loafblog-mail
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog-picture ======='
-#          cd loafblog-picture
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog-search ======='
-#          cd loafblog-search
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建renren-fast ======='
-#          cd renren-fast
-#          mvn docker:build
-#          cd ..
+          echo '======= 开始构建loafblog-blog ======='
+          cd loafblog-blog
+          mvn docker:build
+          cd ..
+
+          echo '======= 开始构建loafblog-gateway ======='
+          cd loafblog-gateway
+          mvn docker:build
+          cd ..
+
+          echo '======= 开始构建loafblog-mail ======='
+          cd loafblog-mail
+          mvn docker:build
+          cd ..
+
+          echo '======= 开始构建loafblog-picture ======='
+          cd loafblog-picture
+          mvn docker:build
+          cd ..
+
+          echo '======= 开始构建loafblog-search ======='
+          cd loafblog-search
+          mvn docker:build
+          cd ..
+
+          echo '======= 开始构建renren-fast ======='
+          cd renren-fast
+          mvn docker:build
+          cd ..
 
 
       - name: Login to DockerHub
@@ -100,26 +100,26 @@ jobs:
         run: |
           docker images
           echo '======= 开始上传镜像 ======='
-          echo '======= 开始上传loaf-auth-server ======='
+          echo '======= 开始上传loafblog-auth-server ======='
 
-          docker push thciwei/loaf-auth-server:latest
+          docker push thciwei/loafblog-auth-server
 
-#          echo '======= 开始上传loaf-blog ======='
-#          docker push thciwei/loaf-blog
-#
-#          echo '======= 开始上传loaf-gateway ======='
-#          docker push thciwei/loaf-gateway
-#
-#          echo '======= 开始上传loaf-mail ======='
-#          docker push thciwei/loaf-mail
-#
-#          echo '======= 开始上传loaf-picture ======='
-#          docker push thciwei/loaf-picture
-#
-#          echo '======= 开始上传loaf-search ======='
-#          docker push thciwei/loaf-search
-#
-#          echo '======= 开始上传renren-fast ======='
-#          docker push thciwei/renren-fast
+          echo '======= 开始上传loafblog-blog ======='
+          docker push thciwei/loafblog-blog
 
-#          echo '=====镜像上传结束====='
+          echo '======= 开始上传loafblog-gateway ======='
+          docker push thciwei/loafblog-gateway
+
+          echo '======= 开始上传loafblog-mail ======='
+          docker push thciwei/loafblog-mail
+
+          echo '======= 开始上传loafblog-picture ======='
+          docker push thciwei/loafblog-picture
+
+          echo '======= 开始上传loafblog-search ======='
+          docker push thciwei/loafblog-search
+
+          echo '======= 开始上传renren-fast ======='
+          docker push thciwei/renren-fast
+
+          echo '=====镜像上传结束====='
