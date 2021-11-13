@@ -35,11 +35,12 @@
 * 引入**RabbitMQ**消息队列，实现邮件的发送
 * 引入**阿里云OSS**对象存储，支持文件的上传
 * 引入**FastDFS**分布式数据库，支持私人的文件上传
+* 通过**Github Action**将服务统一打包成镜像，使用**DockerCompose**进行容器编排，实现**CI/CD**
 
 #### 项目地址
 
-* Gitee地址：https://gitee.com/thciweicloud/loaf-blog
-* Github地址：https://github.com/thciwei/loaf-blog
+* Gitee地址：https://gitee.com/thciweicloud/loafblog
+* Github地址：https://github.com/thciwei/loafblog
 
 
 
@@ -60,7 +61,7 @@
 
 ##### 技术架构
 
-![](https://gitee.com/thciweicloud/tmp/raw/master/架构.png)
+![](https://gitee.com/thciweicloud/tmp/raw/master/架构 (1).jpg)
 
 > 面包博客架构图由 [ProcessOn](https://www.processon.com/) 绘制
 
