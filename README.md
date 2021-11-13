@@ -61,7 +61,7 @@
 
 ##### 技术架构
 
-![](https://gitee.com/thciweicloud/tmp/raw/master/架构 (1).jpg)
+![](https://gitee.com/thciweicloud/tmp/raw/master/面包架构.jpg)
 
 > 面包博客架构图由 [ProcessOn](https://www.processon.com/) 绘制
 
