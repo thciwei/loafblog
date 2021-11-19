@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 @Data
 public class SearchResult {
-    //查询到的商品信息
+
     private List<ArticleEsModel> articles;
     /**
      * 以下是分页信息

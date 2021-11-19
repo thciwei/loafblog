@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "归档",
+  "usingComponents": {
+    "u-tabbar": "/node-modules/uview-ui/components/u-tabbar/u-tabbar"
+  }
+}

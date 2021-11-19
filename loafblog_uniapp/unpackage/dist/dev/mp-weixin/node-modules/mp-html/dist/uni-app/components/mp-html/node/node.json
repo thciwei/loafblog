@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "node": "/node-modules/mp-html/dist/uni-app/components/mp-html/node/node"
+  }
+}

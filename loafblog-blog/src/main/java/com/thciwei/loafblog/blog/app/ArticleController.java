@@ -30,6 +30,18 @@ public class ArticleController {
     private ArticleService articleService;
 
     /**
+     * 移动端分类获取文章
+     *
+     * @param cid
+     * @return
+     */
+    @GetMapping("/uni/{cid}")
+    public R getArticleByCid(@PathVariable("cid") Integer cid) {
+        List<ArticleVo> data = articleService.getArticleByCid(cid);
+        return R.ok().put("data", data);
+    }
+
+    /**
      * 门户由首页跳转文章页
      *
      * @param id
@@ -50,7 +62,6 @@ public class ArticleController {
 
         return R.ok().put("page", page);
     }
-
 
 
     /**
@@ -143,5 +154,6 @@ public class ArticleController {
 
         return R.ok();
     }
+
 
 }

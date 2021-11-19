@@ -184,6 +184,23 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
         return collect;
     }
 
+    @Override
+    public List<ArticleVo> getArticleByCid(Integer cid) {
+        QueryWrapper<ArticleEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("cid", cid);
+        List<ArticleEntity> entities = articleDao.selectList(wrapper);
+        List<ArticleVo> collect = entities.stream().map(item -> {
+            ArticleVo articleVo = new ArticleVo();
+            BeanUtils.copyProperties(item, articleVo);
+            CategoryEntity categoryEntity = categoryDao.selectById(item.getCid());
+            TagsEntity tagsEntity = tagsDao.selectById(item.getTid());
+            articleVo.setTagName(tagsEntity.getTagname());
+            articleVo.setCateName(categoryEntity.getCatename());
+            return articleVo;
+        }).collect(Collectors.toList());
+        return collect;
+
+    }
 
 
 }

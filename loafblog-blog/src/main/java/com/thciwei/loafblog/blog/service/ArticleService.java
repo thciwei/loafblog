@@ -44,5 +44,7 @@ public interface ArticleService extends IService<ArticleEntity> {
 
     List<TagsCloudVo> getTagsCloud();
 
+
+    List<ArticleVo> getArticleByCid(Integer cid);
 }
 
