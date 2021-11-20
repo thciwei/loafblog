@@ -16,7 +16,8 @@
 					<button class="cu-btn bg-gradual-blue shadow-blur round" @click="getSearchResult()">搜索</button>
 				</view>
 			</view>
-			<view class="cu-card case"  :class="isCard?'no-card':''" v-for="(item,index) in blogs" :key="index">
+			<view class="cu-card case"  :class="isCard?'no-card':''" 
+			v-for="(item,index) in blogs" :key="index" @tap="gotoBlog(item.id)">
 				<view class="cu-item shadow">
 					<view class="image">
 						<image :src="item.image" mode="widthFix">
@@ -65,8 +66,6 @@
 				blogs:[],
 				cateId: '',
 				tagId: '',
-				cateName: '',
-				tagName: ''
 
 			}
 		},
@@ -77,10 +76,14 @@
 			this.getSearchResult()
 		},
 		mounted() {
-			// this.getCateName()
-			// this.getTagName()
+		
 		},
 		methods: {
+			gotoBlog(bid) {
+				uni.navigateTo({
+					url: "/pages/blog/blog?blogId=" + bid,
+				})
+			},
 			getSearchResult() {
 				myRequest({
 					url: "/search/save/search",
@@ -93,24 +96,7 @@
 					}
 				})
 			},
-			getCateName() {
-				myRequest({
-					url: "/blog/category/info/" + this.cateId
-				}).then(resp => {
-					if (resp) {
-						this.cateName = resp.data.category.catename
-					}
-				})
-			},
-			getTagName() {
-				myRequest({
-					url: "/blog/tags/info/" + this.tagId
-				}).then(resp => {
-					if (resp) {
-						this.tagName = resp.data.tags.tagname
-					}
-				})
-			}
+		
 		}
 	}
 </script>

@@ -35,15 +35,14 @@
 				<view class='cu-tag line-cyan round'>{{cateName}}</view>
 			</view>
 			<view class="content" style="margin-left: 10px;margin-right: 10px;">
-				<mp-html :content="blog.htmlcontent" />
-
+			
+               <u-parse :html="blog.htmlcontent" :show-with-animation="true"></u-parse>
 			</view>
 		</scroll-view>
 	</view>
 </template>
 
 <script>
-	import mpHtml from 'mp-html/dist/uni-app/components/mp-html/mp-html'
 	import {
 		myRequest
 	} from "../../utils/request.js"
@@ -59,17 +58,13 @@
 
 			}
 		},
-		components: {
-		 mpHtml
-		},
 		onLoad: function(option) { //option为object类型，会序列化上个页面传递的参数 
 			console.log(option.blogId); //打印出上个页面传递的参数。  
 			this.bid = option.blogId
 			this.getBlog()
 		},
 		mounted() {
-			// this.getCateName()
-			// this.getTagName()
+		
 		},
 		methods: {
 			getBlog() {
@@ -86,7 +81,7 @@
 				})
 			},
 			getCateName() {
-				this.cateName = "love"
+				this.cateName="love"
 				myRequest({
 					url: "/blog/category/info/" + this.cateId
 				}).then(resp => {
@@ -96,6 +91,7 @@
 				})
 			},
 			getTagName() {
+				this.tagName="peace"
 				myRequest({
 					url: "/blog/tags/info/" + this.tagId
 				}).then(resp => {
@@ -110,7 +106,7 @@
 
 <style>
 	.DrawerPage {
-		position: fixed;
+		/* position: fixed; */
 		width: 100vw;
 		height: 100vh;
 		left: 0vw;

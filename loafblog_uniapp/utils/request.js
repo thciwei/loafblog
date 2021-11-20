@@ -1,6 +1,7 @@
 
 
 const WEB_API='http://localhost:88/api'
+const TEST_API='http://192.168.31.72:88/api'
 export const myRequest=(options)=>{ //传入的options是一个json对象
 	return new Promise((resolve,reject)=>{
 		uni.request({

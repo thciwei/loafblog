@@ -1,5 +1,6 @@
 package com.thciwei.loafblog.blog.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.thciwei.common.exception.BizCodeEnum;
 import com.thciwei.common.to.es.ArticleEsModel;
 import com.thciwei.common.utils.FileColorUtils;
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -166,10 +168,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
             fileVo.setColor(FileColorUtils.getColor());
             return fileVo;
         }).collect(Collectors.toList());
-
         return collect;
-
-
     }
 
     @Override
@@ -186,6 +185,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
 
     @Override
     public List<ArticleVo> getArticleByCid(Integer cid) {
+
         QueryWrapper<ArticleEntity> wrapper = new QueryWrapper<>();
         wrapper.eq("cid", cid);
         List<ArticleEntity> entities = articleDao.selectList(wrapper);
@@ -200,6 +200,20 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
         }).collect(Collectors.toList());
         return collect;
 
+    }
+
+    @Override
+    public List<String> getArticleTimes() {
+        return articleDao.getArticleTimes();
+
+    }
+
+    @Override
+    public List<ArticleEntity> getByYearMonth(String year, String month) {
+        QueryWrapper<ArticleEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("year(publishDate)", year).eq("month(publishDate)", month);
+        List<ArticleEntity> entities = articleDao.selectList(wrapper);
+        return entities;
     }
 
 

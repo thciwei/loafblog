@@ -8,9 +8,11 @@ import com.thciwei.loafblog.blog.entity.TagsEntity;
 import com.thciwei.loafblog.blog.vo.ArticleFileVo;
 import com.thciwei.loafblog.blog.vo.ArticleVo;
 import com.thciwei.loafblog.blog.vo.TagsCloudVo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -46,5 +48,9 @@ public interface ArticleService extends IService<ArticleEntity> {
 
 
     List<ArticleVo> getArticleByCid(Integer cid);
+
+    List<String> getArticleTimes();
+
+    List<ArticleEntity> getByYearMonth(@Param("year") String year, @Param("month") String month);
 }
 

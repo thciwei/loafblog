@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mp-html": "^2.2.0",
     "uview-ui": "^1.8.4",
     "vuex": "^3.6.2",
     "vuex-persistedstate": "^4.1.0"

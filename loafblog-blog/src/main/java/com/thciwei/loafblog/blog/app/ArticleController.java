@@ -29,6 +29,25 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @GetMapping("/getByYearMonth/{year}/{month}")
+    public R getByYearMonth(@PathVariable("year") String year, @PathVariable("month") String month) {
+
+        List<ArticleEntity> data = articleService.getByYearMonth(year, month);
+        return R.ok().put("data", data);
+    }
+
+
+    /**
+     * 获取去重且格式化的时间 y年 m月
+     *
+     * @return
+     */
+    @GetMapping("/gettimes")
+    public R getArticleTimes() {
+        List<String> data = articleService.getArticleTimes();
+        return R.ok().put("data", data);
+    }
+
     /**
      * 移动端分类获取文章
      *

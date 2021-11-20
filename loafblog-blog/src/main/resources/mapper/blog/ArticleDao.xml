@@ -44,6 +44,9 @@ insert into article(title,mdcontent,htmlcontent,tid,cid,summary,image,isoriginal
     <select id="getBlog" resultType="com.thciwei.loafblog.blog.vo.ArticleVo">
         select a.*,c.cateName,t.tagName from article a,tags t,category c,article_category ac,article_tags att where a.cid=ac.cid and  ac.cid=c.id and a.tid=att.tid and att.tid=t.id  and a.title like concat('%',#{title},'%')
     </select>
+    <select id="getArticleTimes" resultType="java.lang.String">
+        select DISTINCT DATE_FORMAT(publishDate,'%Y年%m月') date from article ORDER BY date desc
+    </select>
 
 
 </mapper>

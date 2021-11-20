@@ -2,7 +2,7 @@
 
 	<scroll-view scroll-y class="scrollPage">
 		<view class="UCenter-bg">
-			<image src="/static/面包.png" class="png" mode="widthFix"></image>
+			<image src="https://gulimall-wqs.oss-cn-beijing.aliyuncs.com/2021-09-13/%E9%9D%A2%E5%8C%85.png" class="png" mode="widthFix"></image>
 			<view class="text-xl" style="color: #000000;">面包博客
 			</view>
 			<image src="../../static/wave.gif" mode="scaleToFill" class="gif-wave"></image>

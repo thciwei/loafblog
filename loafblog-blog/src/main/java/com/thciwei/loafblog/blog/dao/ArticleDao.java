@@ -6,6 +6,7 @@ import com.thciwei.loafblog.blog.vo.ArticleVo;
 import com.thciwei.loafblog.blog.vo.DataVo;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,5 +26,7 @@ public interface ArticleDao extends BaseMapper<ArticleEntity> {
 
     void saveArticle(ArticleEntity article);
 
+
+    List<String> getArticleTimes();
 
 }
