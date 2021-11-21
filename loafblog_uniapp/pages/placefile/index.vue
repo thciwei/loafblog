@@ -1,18 +1,23 @@
 <template>
 	<view>
-		<!-- 	<cu-custom bgColor="light bg-blue" :isBack="false">
-			<block slot="backText">返回</block>
-		    <block slot="content">导航栏</block>
-		</cu-custom> -->
 		<view class="fixed">
 			<cu-custom :isBack="true" bgColor="bg-shadeTop text-white">
 			</cu-custom>
 		</view>
-		<swiper class="screen-swiper round-dot" :indicator-dots="true" :circular="true" :autoplay="true" interval="5000"
+		<!-- <swiper class="screen-swiper round-dot" :indicator-dots="true" :circular="true" :autoplay="true" interval="5000"
 			duration="500">
 			<swiper-item v-for="(item,index) in 4" :key="index">
 				<image :src="'https://ossweb-img.qq.com/images/lol/web201310/skin/big3900'+index+ '.jpg'"
 					mode="aspectFill"></image>
+			</swiper-item>
+		</swiper> -->
+		<swiper class="screen-swiper" :class="dotStyle?'square-dot':'round-dot'" :indicator-dots="true" :circular="true"
+			:autoplay="true" interval="5000" duration="500">
+			<swiper-item v-for="(item,index) in imageList" :key="index">
+				<image :src="item.image" mode="aspectFill"></image>
+				<view class="cu-bar bg-shadeBottom" style="margin-top: -50px;">
+					<text class="text-cut" style="font-size: 18px; margin: 0 auto;">{{item.title}}</text>
+				</view>
 			</swiper-item>
 		</swiper>
 
@@ -84,6 +89,18 @@
 				year: '',
 				blogs: [],
 				selectTime: '',
+				imageList: [{
+						image: '/static/vue0.jpg',
+						title: 'vue头像裁剪',
+						id:3
+					},
+					{
+						image: '/static/docker0.jpg',
+						title: 'dockerFile使用',
+						id:2
+					},
+	
+				],
 			
 			}
 		},

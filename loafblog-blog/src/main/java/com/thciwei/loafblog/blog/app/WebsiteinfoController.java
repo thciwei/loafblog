@@ -19,7 +19,7 @@ import com.thciwei.common.utils.R;
  */
 @RestController
 @RequestMapping("blog/websiteinfo")
-public class WebsiteinfoController {
+public class    WebsiteinfoController {
     @Autowired
     private WebsiteinfoService websiteinfoService;
 

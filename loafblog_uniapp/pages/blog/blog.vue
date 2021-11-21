@@ -35,8 +35,8 @@
 				<view class='cu-tag line-cyan round'>{{cateName}}</view>
 			</view>
 			<view class="content" style="margin-left: 10px;margin-right: 10px;">
-			
-               <u-parse :html="blog.htmlcontent" :show-with-animation="true"></u-parse>
+
+				<u-parse :html="blog.htmlcontent" :show-with-animation="true"></u-parse>
 			</view>
 		</scroll-view>
 	</view>
@@ -64,7 +64,7 @@
 			this.getBlog()
 		},
 		mounted() {
-		
+
 		},
 		methods: {
 			getBlog() {
@@ -81,7 +81,7 @@
 				})
 			},
 			getCateName() {
-				this.cateName="love"
+				this.cateName = "love"
 				myRequest({
 					url: "/blog/category/info/" + this.cateId
 				}).then(resp => {
@@ -91,7 +91,7 @@
 				})
 			},
 			getTagName() {
-				this.tagName="peace"
+				this.tagName = "peace"
 				myRequest({
 					url: "/blog/tags/info/" + this.tagId
 				}).then(resp => {
@@ -117,7 +117,8 @@
 	.tagAndCate {
 		margin: 5px 0 5px 4px;
 	}
-	.tagAndCate .cu-tag{
+
+	.tagAndCate .cu-tag {
 		margin: 2px 0 0 2px;
 	}
 </style>

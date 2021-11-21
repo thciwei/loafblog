@@ -39,6 +39,16 @@
 			"style": {
 				
 			}
+		},{
+			"path": "pages/my/websites",
+			"style": {
+				
+			}
+		},{
+			"path": "pages/my/gitpage",
+			"style": {
+				
+			}
 		}
 	
 ],

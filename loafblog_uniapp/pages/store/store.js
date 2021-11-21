@@ -18,15 +18,15 @@ const state = {
 			pagePath: "/pages/index/index"
 		},
 		{
-			iconPath: "photo",
-			selectedIconPath: "photo-fill",
+			iconPath: "grid",
+			selectedIconPath: "grid-fill",
 			text: '分类',
 			customIcon: false,
 			pagePath: "/pages/cate/index"
 		},
 		{
-			iconPath: "play-right",
-			selectedIconPath: "play-right-fill",
+			iconPath: "hourglass",
+			selectedIconPath: "hourglass-half-fill",
 			text: '归档',
 			customIcon: false,
 			pagePath: "/pages/placefile/index"

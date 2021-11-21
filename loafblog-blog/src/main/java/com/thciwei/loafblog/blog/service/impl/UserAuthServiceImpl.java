@@ -97,11 +97,7 @@ public class UserAuthServiceImpl extends ServiceImpl<UserAuthDao, UserAuthEntity
             } else {
                 return null;
             }
-
-
         }
-
-
     }
 
     @Override
