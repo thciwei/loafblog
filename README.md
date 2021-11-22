@@ -146,4 +146,6 @@
 * 学习陌溪大佬的 [蘑菇博客](https://gitee.com/moxi159753/mogu_blog_v2?_from=gitee_search) 技术处理方法和基础微服务架构
 * 学习 [谷粒商城](https://gitee.com/agoni_no/gulimall?_from=gitee_search) 的业务架构模式
 * 学习技术，重视技术过程，先简化省略基础CRUD代码，使用 [人人开源](https://gitee.com/renrenio/renren-fast?_from=gitee_search) 组件
+* 学习简洁风格的前端样式，fengziy大佬的 [Gblog]([Gblog: 一款nice的基于 vue 的博客模板 (gitee.com)](https://gitee.com/fengziy/Gblog))
 
+   
