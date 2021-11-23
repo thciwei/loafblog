@@ -121,7 +121,7 @@ jobs:
 #
 #          echo '======= 开始上传renren-fast ======='
 #          docker push thciwei/renren-fast
-#
+
           echo '======= 开始上传loafblog_vue ======='
           docker push thciwei/loafblog_vue
 
