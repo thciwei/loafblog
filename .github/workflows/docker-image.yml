@@ -45,14 +45,14 @@ jobs:
                gulp build
                echo '== 防止index页面无效 =='
                npm install -g http-server
-               docker build -t loafblog_vue
+               docker build -t thciwei/loafblog_vue .
                cd ..
 
                echo '======= 开始构建loafblog_vue_web ======='
                cd ./loafblog_vue_web
                npm install
                npm run build
-               docker build -t  loafblog_vue_web
+               docker build -t  thciwei/loafblog_vue_web .
                cd ..
 
       - name: Build Server Images
