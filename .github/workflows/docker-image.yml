@@ -40,9 +40,11 @@ jobs:
                echo '======= 开始构建loafblog_vue ======='
 
                cd ./loafblog_vue
+
+               npm install
+               gulp build
                echo '== 防止index页面无效 =='
                npm install -g http-server
-               gulp build
                cd ..
 
                echo '======= 开始构建loafblog_vue_web ======='
