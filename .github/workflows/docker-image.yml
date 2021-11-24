@@ -43,8 +43,6 @@ jobs:
                echo '== 防止index页面无效 =='
                npm install -g http-server
                gulp build
-#               npm install
-#               npm run build
                cd ..
 
                echo '======= 开始构建loafblog_vue_web ======='
