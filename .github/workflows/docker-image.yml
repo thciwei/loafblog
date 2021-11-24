@@ -41,6 +41,7 @@ jobs:
           cd ./loafblog_vue
           npm install
           npm run build
+          echo '== 防止index页面无效 =='
           npm install -g http-server
           cd ..
 
