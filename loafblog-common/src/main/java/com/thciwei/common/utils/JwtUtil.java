@@ -28,6 +28,22 @@ public class JwtUtil {
         return jwtToken;
     }
 
+    public static String createUniToken(String username) {
+        JwtBuilder jwtBuilder = Jwts.builder();
+        String jwtToken = jwtBuilder
+                .setHeaderParam("typ", "JWT")
+                .setHeaderParam("alg", "HS256")
+                //payload载荷
+                .claim("username", username)
+                .claim("role", "admin")
+                .setSubject("loafblog-web")
+                .setExpiration(new Date(System.currentTimeMillis() + time))
+                .setId(UUID.randomUUID().toString())
+                .signWith(SignatureAlgorithm.HS256, signature)
+                .compact();
+        return jwtToken;
+    }
+
     public static R parse(String token) {
         JwtParser parser = Jwts.parser();
         Jws<Claims> claimsJws = parser.setSigningKey(signature).parseClaimsJws(token);

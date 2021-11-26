@@ -49,6 +49,11 @@
 			"style": {
 				
 			}
+		},{
+			"path": "pages/userauth/login",
+			"style": {
+				
+			}
 		}
 	
 ],

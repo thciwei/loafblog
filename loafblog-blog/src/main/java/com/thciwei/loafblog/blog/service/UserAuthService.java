@@ -34,5 +34,8 @@ public interface UserAuthService extends IService<UserAuthEntity> {
     UserAuthEntity login(UserLoginVo vo);
 
     UserAuthEntity login(@Param("socialUser") SocialUser socialUser, @Param("token") String token) throws Exception;
+
+
+    String uniLogin(UserLoginVo vo);
 }
 

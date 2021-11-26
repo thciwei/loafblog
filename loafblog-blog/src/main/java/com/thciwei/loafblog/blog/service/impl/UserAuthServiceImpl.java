@@ -125,8 +125,8 @@ public class UserAuthServiceImpl extends ServiceImpl<UserAuthDao, UserAuthEntity
 //            });
             Claims user = (Claims) r.get("user");
 
-            String username= JSON.toJSONString(user.get("username"));
-            String avatar= JSON.toJSONString(user.get("avatar"));
+            String username = JSON.toJSONString(user.get("username"));
+            String avatar = JSON.toJSONString(user.get("avatar"));
             String userUid = socialUser.getUid();
             String access_token = socialUser.getAccess_token();
             String expires_in = socialUser.getExpires_in();
@@ -167,6 +167,27 @@ public class UserAuthServiceImpl extends ServiceImpl<UserAuthDao, UserAuthEntity
 
         }
 
+
+    }
+
+    @Override
+    public String uniLogin(UserLoginVo vo) {
+        String loginacct = vo.getLoginacct();
+        String password = vo.getPassword();
+        UserAuthEntity entity = this.baseMapper.selectOne(new QueryWrapper<UserAuthEntity>().eq("username", loginacct).or().eq("mobile", loginacct));
+        if (entity == null) {
+            return null;
+        } else {
+            String passwordDB = entity.getPassword();
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            boolean matches = passwordEncoder.matches(password, passwordDB);
+            if (matches) {
+                String token = JwtUtil.createUniToken(loginacct);
+                return token;
+            } else {
+                return null;
+            }
+        }
 
     }
 

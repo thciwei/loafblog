@@ -65,7 +65,7 @@
 					<text class="text-grey">友链申请</text>
 				</view>
 			</view>
-			<view class="cu-item arrow">
+			<view class="cu-item arrow" @click="logout()">
 				<navigator class="content" url="/pages/about/test/list" hover-class="none">
 					<text class="cuIcon-creativefill text-orange"></text>
 					<text class="text-grey">退出登录</text>
@@ -170,6 +170,13 @@
 			this.$refs.uForm.setRules(this.rules);
 		},
 		methods: {
+			logout() {
+				uni.removeStorageSync('token')
+				this.$refs.uToast.show({
+					title: '退出登录成功',
+					type: 'success',
+				})
+			},
 			initTimeLine() {
 				myRequest({
 					url: "/blog/web/file"
@@ -216,16 +223,35 @@
 				});
 			},
 			showModal(e) {
-				this.modalName = e.currentTarget.dataset.target
-				this.initTimeLine()
+				const token = uni.getStorageSync('token');
+				if (!token) {
+					uni.navigateTo({
+						url: '../userauth/login'
+					})
+
+				} else {
+					this.modalName = e.currentTarget.dataset.target
+					this.initTimeLine()
+				}
+				// this.modalName = e.currentTarget.dataset.target
+				// this.initTimeLine()
 			},
 			hideModal(e) {
 				this.modalName = null
 			},
 			gotoFriend() {
-				uni.navigateTo({
-					url: "./websites"
-				})
+				const token = uni.getStorageSync('token');
+				if (!token) {
+					uni.navigateTo({
+						url: '../userauth/login'
+					})
+
+				} else {
+					uni.navigateTo({
+						url: "./websites"
+					})
+				}
+
 			}
 
 		}
@@ -233,14 +259,13 @@
 </script>
 
 <style scoped>
-	
 	.DrawerWindow {
 		position: absolute;
 		height: 100vh;
 		left: 0;
 		top: 0;
 	}
-	
+
 	.UCenter-bg {
 		background-image: url("/static/bg3.jpeg");
 		background-size: cover;

@@ -1,5 +1,6 @@
 package com.thciwei.loafblog.blog.app;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import com.thciwei.common.exception.BizCodeEnum;
 import com.thciwei.common.utils.PageUtils;
 import com.thciwei.common.utils.R;
@@ -50,6 +51,23 @@ public class UserAuthController {
         UserAuthEntity entity = userAuthService.login(vo);
         if (entity != null) {
             return R.ok();
+        } else {
+            return R.error(BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getCode(), BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getMsg());
+        }
+
+    }
+
+    /**
+     * 小程序登录测试
+     * @param vo
+     * @return
+     */
+    @PostMapping("/unilogin")
+    public R unilogin(@RequestBody UserLoginVo vo) {
+        // TODO 小程序端登录
+        String token = userAuthService.uniLogin(vo);
+        if (token != null) {
+            return R.ok().put("token",token);
         } else {
             return R.error(BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getCode(), BizCodeEnum.LOGINACCT_PASSWORD_EXCEPTION.getMsg());
         }

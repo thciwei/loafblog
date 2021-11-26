@@ -4,7 +4,7 @@ import {envConfig} from '../config/env.js'
 export const myRequest=(options)=>{ //传入的options是一个json对象
 	return new Promise((resolve,reject)=>{
 		uni.request({
-			url:envConfig.TEST_API+options.url,
+			url:envConfig.WEB_API+options.url,
 			method:options.methods||"GET",
 			data:options.data || {},
 			dataType:options.dataType || "json",
