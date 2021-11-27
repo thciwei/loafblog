@@ -22,7 +22,7 @@
 
 #### 项目介绍
 
-面包博客( **loafBlog** )，一个**基于微服务架构的前后端分离博客系统**。Web端使用 **Vue** + **ElementUi** 。后端使用 **SpringCloud** + **Mybatis-plus**进行开发，使用 **Jwt** + **Shiro** 做登录验证和权限校验，使用 **ElasticSearch** 作为全文检索服务，使用 **Github Actions**完成博客的持续集成，使用 **ElasticStack** 收集博客日志，文件支持**上传本地**、**阿里云OSS** 。
+面包博客( **loafBlog** )，一个**基于微服务架构的前后端分离博客系统**。Web端使用 **Vue** + **ElementUi** ，移动端使用**uniapp**+**ColorUI**。后端使用 **SpringCloud** + **Mybatis-plus**进行开发，使用 **Jwt** 做登录验证和权限校验，使用**ElasticSearch** 作为全文检索服务，使用 **Github Actions**完成博客的持续集成，使用 **ElasticStack** 收集博客日志，文件支持**上传本地**、**阿里云OSS** 。
 
 
 #### 项目特点
@@ -56,12 +56,13 @@
 * renren-fast  **admin端**，博客管理后台
 * loafblog_vue 面包博客**管理端**页面
 * loafblog_vue_web 面包博客**门户**页面
+* loablog_uniapp 面包博客**移动端**
 
 #### 技术选型
 
 ##### 技术架构
 
-![](https://gitee.com/thciweicloud/tmp/raw/master/面包架构.jpg)
+![](https://gitee.com/thciweicloud/tmp/raw/master/完整架构.jpg)
 
 > 面包博客架构图由 [ProcessOn](https://www.processon.com/) 绘制
 
@@ -105,6 +106,8 @@
 | vue-side-catalog |        目录导航栏         | https://github.com/yaowei9363/vue-side-catalog |
 |     VueStar      |         点赞插件          |        https://github.com/OYsun/VueStar        |
 |  vue-clipboard2  |        剪切板工具         |    https://github.com/Inndy/vue-clipboard2     |
+|      uniapp      |      开发跨平台框架       |           https://uniapp.dcloud.io/            |
+|     ColorUI      |         css样式库         |      https://github.com/weilanwl/ColorUI       |
 
 
 
@@ -138,6 +141,7 @@
 | SwitchHosts  | 本地Host管理工具  |     https://oldj.github.io/SwitchHosts/     |
 | RedisDesktop |  Redis可视化工具  |      https://redisdesktop.com/download      |
 |   Navicat    |  数据库管理工具   |         https://www.navicat.com.cn/         |
+|  Hbuilder X  |    前端开发IDE    |    https://www.dcloud.io/hbuilderx.html     |
 
 
 
