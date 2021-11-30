@@ -46,14 +46,14 @@ export default [
                         title: 'GitHub',
                         icon: 'icongithub',
                         color: '',
-                        href: 'https://github.com/fengziye'
+                        href: 'https://github.com/thciwei/loafblog'
                     },
                     {
                         id: 4,
                         title: 'CSDN',
                         icon: 'iconcsdn',
                         color: 'red',
-                        href: 'https://blog.csdn.net/feng_zi_ye'
+                        href: 'https://gitee.com/thciweicloud/loafblog'
                     }
                 ]
             }

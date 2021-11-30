@@ -1,9 +1,9 @@
 const Mock = require('mockjs');
 const List = [{
     id: 0,
-    siteName: "FZY′blog",
-    path: "https://www.fengziy.cn",
-    desc: "一个It技术的探索者"
+    siteName: "thciwei′blog",
+    path: "https://gitee.com/thciweicloud/loafblog",
+    desc: "一个微服务博客"
 }]
 const count = 15
 

@@ -15,8 +15,9 @@ export default [
                     },
                     {
                         id: 2,
-                        title: '使用说明',
-                        img: 'https://s1.ax1x.com/2020/05/14/YDf4AJ.jpg'
+                        title: '项目地址',
+                        img: 'https://gitee.com/thciweicloud/tmp/raw/master/tutu.jpg',
+                        href: 'about'
                     },
                     {
                         id: 3,
