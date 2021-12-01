@@ -152,5 +152,30 @@
 * 学习技术，重视技术过程，先简化省略基础CRUD代码，使用 [人人开源](https://gitee.com/renrenio/renren-fast?_from=gitee_search) 组件
 * 学习简洁风格的前端样式，[fenziy](https://gitee.com/fengziy) 大佬的博客样式
 
-   
+
+
+## 项目展示
+
+
+
+| WEB端                                                        |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg7vxobhj31hc0oz7fm.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9iw6hij31hc0oz45a.jpg) |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9mgahoj31hc0ozqa2.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9n3q8nj31hc0oz7bg.jpg) |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9ogbuxj31hc0ozn4w.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rk2ebj31hc0oztkg.jpg) |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rl7b5j31hc0oz799.jpg) |                                                              |
+| **管理端**                                                   |                                                              |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9uuq8pj31hc0ozwrl.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9wok0ej31hc0oz110.jpg) |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9yb2qxj31hc0ozdr0.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9zj8otj31hc0ozajm.jpg) |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxga113zij31hc0ozwo9.jpg) | ![admin_4.png](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxgov2tgmj31hc0oz4as.jpg) |
+| ![admin_5.png](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxgpoyqc5j31hc0oz7jk.jpg) |                                                              |
+| **监控**                                                     |                                                              |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rakn4j31hc0oz49q.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vrjaqj31hc0oz7a7.jpg) |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vzl6fj31hc0oz7df.jpg) |                                                              |
+
+
+
+**移动端**
+
+![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxga1vkrfg30910jme87.gif)
 
