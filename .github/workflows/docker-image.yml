@@ -5,7 +5,7 @@ on:
     branches: master
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     environment: loafblog
     steps:
@@ -133,13 +133,13 @@ jobs:
           echo '=====镜像上传结束====='
           echo '=====开始自动部署====='
 
-    - name: Start loafblog
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: ${{ secrets.REMOTE_USER }}
-        password: ${{ secrets.REMOTE_PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-          cd /root/loafblog
-          docker-compose up
+      - name: Start loafblog
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /root/loafblog
+            docker-compose up
