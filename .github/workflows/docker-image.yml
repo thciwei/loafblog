@@ -1,15 +1,11 @@
 name: Master-Docker-Images
 
-
-
 on:
   push:
     branches: master
 
-
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     environment: loafblog
     steps:
