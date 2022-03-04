@@ -1,6 +1,6 @@
 package com.thciwei.loafblog.blog.app;
 
-import com.sun.xml.internal.bind.v2.TODO;
+
 import com.thciwei.common.exception.BizCodeEnum;
 import com.thciwei.common.utils.PageUtils;
 import com.thciwei.common.utils.R;
@@ -12,7 +12,6 @@ import com.thciwei.loafblog.blog.vo.SocialUser;
 import com.thciwei.loafblog.blog.vo.UserLoginVo;
 import com.thciwei.loafblog.blog.vo.UserRegistVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
