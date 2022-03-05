@@ -91,6 +91,9 @@
 |     Lombok     | 简化对象封装工具  |            https://projectlombok.org/             |
 |    uni-sms     |   短信服务平台    |            https://unisms.apistd.com/             |
 | Docker Compose |  Docker容器编排   |         https://docs.docker.com/compose/          |
+|   Prometheus   |  可视化数据监控   |              https://prometheus.io/               |
+|    Grafana     |   数据监控面板    |               https://grafana.com/                |
+|     Zipkin     |     链路追踪      |       https://github.com/openzipkin/zipkin        |
 
 ##### 前端技术
 
