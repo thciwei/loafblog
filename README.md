@@ -37,8 +37,10 @@
 * 引入**FastDFS**分布式数据库，支持私人的文件上传
 * 通过**Github Action**将服务统一打包成镜像，使用**DockerCompose**进行容器编排，实现**CI/CD**
 
+#### 站点演示
+* [面包博客简易演示地址](http://8.129.122.160:8888/)
+* 由于服务器过于轻量，只启动loafblog-blog和gateway模块
 #### 项目地址
-
 * Gitee地址：https://gitee.com/thciweicloud/loafblog
 * Github地址：https://github.com/thciwei/loafblog
 

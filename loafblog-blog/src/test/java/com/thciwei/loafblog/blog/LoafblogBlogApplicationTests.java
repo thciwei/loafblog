@@ -24,7 +24,7 @@ public class LoafblogBlogApplicationTests {
     @Test
     public void one() {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encode = passwordEncoder.encode("123");
+        String encode = passwordEncoder.encode("thciwei");
         System.out.println(encode);
     }
 
