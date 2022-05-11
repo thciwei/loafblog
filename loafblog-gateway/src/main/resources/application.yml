@@ -37,6 +37,7 @@ spring:
             - Path=/api/**
           filters:
             - RewritePath=/api/(?<segment>/?.*),/renren-fast/$\{segment}
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin # 过滤跨域重复
         - id: loafblog_host_routes
           uri: lb://loafblog-blog
           predicates:

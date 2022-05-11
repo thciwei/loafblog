@@ -25,7 +25,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 8.129.122.160:8848
+        server-addr: localhost:8848            #本地nacos注册了
   redis:
     open: false  # 是否开启redis缓存  true开启   false关闭
     database: 0

@@ -38,8 +38,9 @@
 * 通过**Github Action**将服务统一打包成镜像，使用**DockerCompose**进行容器编排，实现**CI/CD**
 
 #### 站点演示
-* [面包博客简易演示地址](http://8.129.122.160:8888/)
-* 由于服务器过于轻量，只启动loafblog-blog和gateway模块
+* [面包博客简易演示地址，门户网站](http://8.129.122.160:8888/)
+* [面包博客简易演示地址，管理后台](http://8.129.122.160:8001/) 账号 visitor 密码 123
+* 由于服务器过于轻量，只启动少量模块
 #### 项目地址
 * Gitee地址：https://gitee.com/thciweicloud/loafblog
 * Github地址：https://github.com/thciwei/loafblog
