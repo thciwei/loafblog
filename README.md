@@ -1,6 +1,6 @@
 # 面包博客
 <div align="center">
-<img src="https://gitee.com/thciweicloud/tmp/raw/master/%E9%9D%A2%E5%8C%85.png"/>
+<img src="http://tva1.sinaimg.cn/large/006yRl4Gly1h2cytl2jy8j305k05kwey.jpg"/>
     <p >
         面包博客,一个微服务架构的前后端分离博客系统
     </p>
