@@ -183,5 +183,5 @@
 
 **移动端**
 
-![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxga1vkrfg30910jme87.gif)
+![](https://github.com/thciwei/theVhr/blob/0e367386c60cb5b84288ba78fd37ed30a477945c/springboot_vhr/src/assets/006yRl4Gly1gwxga1vkrfg30910jme87.gif)
 
