@@ -177,7 +177,7 @@
 | ![admin_5.png](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxgpoyqc5j31hc0oz7jk.jpg) |                                                              |
 | **监控**                                                     |                                                              |
 | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rakn4j31hc0oz49q.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vrjaqj31hc0oz7a7.jpg) |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vzl6fj31hc0oz7df.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1h2cdhod7ypj31g00oxk3f.jpg) |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vzl6fj31hc0oz7df.jpg) |                                                              |
 
 
 
