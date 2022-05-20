@@ -1,6 +1,6 @@
 # 面包博客
 <div align="center">
-<img src="https://gitee.com/thciweicloud/tmp/raw/master/%E9%9D%A2%E5%8C%85.png"/>
+<img src="http://tva1.sinaimg.cn/large/006yRl4Gly1h2cytl2jy8j305k05kwey.jpg"/>
     <p >
         面包博客,一个微服务架构的前后端分离博客系统
     </p>
@@ -177,11 +177,11 @@
 | ![admin_5.png](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxgpoyqc5j31hc0oz7jk.jpg) |                                                              |
 | **监控**                                                     |                                                              |
 | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rakn4j31hc0oz49q.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vrjaqj31hc0oz7a7.jpg) |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vzl6fj31hc0oz7df.jpg) |                                                              |
+| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vzl6fj31hc0oz7df.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1h2cdhod7ypj31g00oxk3f.jpg)                                                             |
 
 
 
 **移动端**
 
-![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxga1vkrfg30910jme87.gif)
+![](https://github.com/thciwei/theVhr/blob/main/springboot_vhr/src/assets/006yRl4Gly1gwxga1vkrfg30910jme87.gif)
 
