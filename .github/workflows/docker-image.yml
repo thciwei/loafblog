@@ -21,7 +21,7 @@
 #
 #      - uses: docker/setup-buildx-action@v1
 #
-#      - name: 安装Maven #Maven Install
+#      - name: Maven Install
 #        run: |
 #          echo '======= 开始mvn clean ======='
 #          mvn clean
@@ -29,67 +29,72 @@
 #          echo '======= 开始mvn install&&package ======='
 #          mvn install -DskipTests=true &&  mvn package -DskipTests=true
 #
-#      - name: 构建前端镜像 #Build vue web
+#      - name: 构建前端镜像 Build vue web
 #        run: |
-#               echo '======= 开始构建前端镜像 ======='
-#               echo '======= 开始构建loafblog_vue ======='
+#          echo '======= 开始构建loafblog_vue ======='
 #
-#               cd ./loafblog_vue
+#          cd ./loafblog_vue
 #
-#               npm install
-#               gulp build
-#               echo '== 防止index页面无效 =='
-#               npm install -g http-server
-#               docker build -t thciwei/loafblog_vue .
-#               cd ..
-#
-#               echo '======= 开始构建loafblog_vue_web ======='
-#               cd ./loafblog_vue_web
-#               npm install
-#               npm run build
-#               docker build -t  thciwei/loafblog_vue_web .
-#               cd ..
-#
-#      - name: 构建后端镜像 #Build Server Images
+#          npm install
+#          npm run build
+#          docker build -t thciwei/loafblog_vue .
+#          cd ..
+      #               echo '======= 开始构建前端镜像 ======='
+      #               echo '======= 开始构建loafblog_vue_web ======='
+      #               cd ./loafblog_vue_web
+      #               npm install
+      #               npm run build
+      #               docker build -t  thciwei/loafblog_vue_web .
+      #               cd ..
+
+
+
+
+
+#      - name: Build Server Images
 #        run: |
 #          echo '======= 开始构建后端镜像 ======='
-#          echo '======= 开始构建loafblog-auth-server ======='
-#          cd loafblog-auth-server
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog-blog ======='
-#          cd loafblog-blog
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog-gateway ======='
-#          cd loafblog-gateway
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog-mail ======='
-#          cd loafblog-mail
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog-picture ======='
-#          cd loafblog-picture
-#          mvn docker:build
-#          cd ..
-#
-#          echo '======= 开始构建loafblog-search ======='
-#          cd loafblog-search
-#          mvn docker:build
-#          cd ..
 #
 #          echo '======= 开始构建renren-fast ======='
 #          cd renren-fast
 #          mvn docker:build
 #          cd ..
-#
-#
-#      - name: 登录docker镜像站 #Login to DockerHub
+
+      #          echo '======= 开始构建loafblog-blog ======='
+      #          cd loafblog-blog
+      #          mvn docker:build
+      #          cd ..
+
+
+      #
+      #          echo '======= 开始构建loafblog-gateway ======='
+      #          cd loafblog-gateway
+      #          mvn docker:build
+      #          cd ..
+
+      #          echo '======= 开始构建loafblog-auth-server ======='
+      #          cd loafblog-auth-server
+      #          mvn docker:build
+      #          cd ..
+      #          echo '======= 开始构建loafblog-mail ======='
+      #          cd loafblog-mail
+      #          mvn docker:build
+      #          cd ..
+      #
+      #          echo '======= 开始构建loafblog-picture ======='
+      #          cd loafblog-picture
+      #          mvn docker:build
+      #          cd ..
+      #
+      #          echo '======= 开始构建loafblog-search ======='
+      #          cd loafblog-search
+      #          mvn docker:build
+      #          cd ..
+      #
+
+
+
+#      - name: Login to DockerHub
 #        uses: docker/login-action@v1
 #        with:
 #          username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -97,26 +102,36 @@
 #
 #
 #
-#      - name: 上传镜像 #push Images to DockerHub
+#      - name: push Images to DockerHub
 #        run: |
 #          docker images
 #          echo '======= 开始上传镜像 ======='
-#          echo '======= 开始上传loafblog_vue_web ======='
-#          docker push thciwei/loafblog_vue_web
 #
 #          echo '======= 开始上传loafblog_vue ======='
 #          docker push thciwei/loafblog_vue
+#          echo '======= 开始上传renren-fast ======='
+#          docker push thciwei/renren-fast
+#          echo '======= 开始上传loafblog-blog ======='
+#          docker push thciwei/loafblog-blog
+
+
+
+
+
+#          echo '======= 开始上传loafblog_vue_web ======='
+#          docker push thciwei/loafblog_vue_web
+
+
+#
+#          echo '======= 开始上传loafblog-gateway ======='
+#          docker push thciwei/loafblog-gateway
+
+
+
 #
 #          echo '======= 开始上传loafblog-auth-server ======='
 #
 #          docker push thciwei/loafblog-auth-server
-#
-#          echo '======= 开始上传loafblog-blog ======='
-#          docker push thciwei/loafblog-blog
-#
-#          echo '======= 开始上传loafblog-gateway ======='
-#          docker push thciwei/loafblog-gateway
-#
 #          echo '======= 开始上传loafblog-mail ======='
 #          docker push thciwei/loafblog-mail
 #
@@ -126,14 +141,13 @@
 #          echo '======= 开始上传loafblog-search ======='
 #          docker push thciwei/loafblog-search
 #
-#          echo '======= 开始上传renren-fast ======='
-#          docker push thciwei/renren-fast
-#
-#
+
+
+
 #          echo '=====镜像上传结束====='
 #          echo '=====开始自动部署====='
-#
-#      - name: 部署服务 #Start loafblog
+
+#      - name: 部署到服务器 Start loafblog
 #        uses: appleboy/ssh-action@master
 #        with:
 #          host: ${{ secrets.REMOTE_HOST }}

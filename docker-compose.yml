@@ -1,0 +1,24 @@
+version: "3.0"
+
+services:
+  loafblog-gateway:
+    image: thciwei/loafblog-gateway
+    ports:
+      - "88:88"
+    networks:
+      - loaf
+  loafblog-blog:
+    image: thciwei/loafblog-blog
+    ports:
+      - "7000:7000"
+    networks:
+      - loaf
+  loafblog_vue_web:
+    image: thciwei/loafblog_vue_web
+    ports:
+      - "8888:8888"
+    networks:
+      - loaf
+
+networks:
+  loaf:
