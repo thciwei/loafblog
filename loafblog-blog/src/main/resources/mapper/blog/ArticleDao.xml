@@ -39,7 +39,7 @@
 insert into article(title,mdcontent,htmlcontent,tid,cid,summary,image,isoriginal,iscomment,number,state,publishdate) values(#{title},#{mdcontent},#{htmlcontent},#{tid},#{cid},#{summary},#{image},#{isoriginal},#{iscomment},#{number},#{state},#{publishdate})
     </insert>
     <select id="getTagAndCategory" resultMap="articleVo">
-        select DISTINCT a.id id,a.title title,a.mdcontent mdcontent,a.htmlcontent htmlcontent,a.summary summary,a.image image,a.publishdate publishdate,a.isoriginal isoriginal,a.iscomment iscomment,a.number number,a.state state,c.cateName cateName,t.tagName tagName from article a,tags t,category c,article_category ac,article_tags att where a.cid=ac.cid and  ac.cid=c.id and a.tid=att.tid and att.tid=t.id order by a.publishdate
+        select DISTINCT a.id id,a.title title,a.mdcontent mdcontent,a.htmlcontent htmlcontent,a.summary summary,a.image image,a.publishdate publishdate,a.isoriginal isoriginal,a.iscomment iscomment,a.number number,a.state state,c.cateName cateName,t.tagName tagName from article a,tags t,category c,article_category ac,article_tags att where a.cid=ac.cid and  ac.cid=c.id and a.tid=att.tid and att.tid=t.id and state =0 order by a.publishdate
 </select>
     <select id="getBlog" resultType="com.thciwei.loafblog.blog.vo.ArticleVo">
         select a.*,c.cateName,t.tagName from article a,tags t,category c,article_category ac,article_tags att where a.cid=ac.cid and  ac.cid=c.id and a.tid=att.tid and att.tid=t.id  and a.title like concat('%',#{title},'%')

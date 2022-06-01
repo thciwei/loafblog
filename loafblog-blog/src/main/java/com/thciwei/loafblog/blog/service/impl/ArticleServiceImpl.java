@@ -1,6 +1,7 @@
 package com.thciwei.loafblog.blog.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
+
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.thciwei.common.exception.BizCodeEnum;
 import com.thciwei.common.to.es.ArticleEsModel;
 import com.thciwei.common.utils.FileColorUtils;
@@ -17,8 +18,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -49,14 +49,20 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
     ArticleTagsDao articleTagsDao;
     @Autowired
     SearchFeignService searchFeignService;
+    @Autowired
+    ArticleService articleService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         String key = (String) params.get("key");
         QueryWrapper<ArticleEntity> wrapper = new QueryWrapper<>();
+
         if (!StringUtils.isEmpty(key)) {
             wrapper.eq("id", key).or().like("title", key);
+        } else {
+            wrapper.eq("state", 0);
         }
+
         IPage<ArticleEntity> page = this.page(
                 new Query<ArticleEntity>().getPage(params),
                 wrapper
@@ -67,17 +73,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
 
     @Override
     public List<ArticleVo> getTagAndCategory() {
-
-
         List<ArticleVo> data = articleDao.getTagAndCategory();
+
         return data;
     }
 
-    @Override
-    public List<ArticleVo> getBlog(String title) {
-        List<ArticleVo> data = articleDao.getBlog(title);
-        return data;
-    }
 
     @Override
     public List<CategoryEntity> getCategorys() {
@@ -106,7 +106,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
          */
         ArticleEsModel articleEsModel = new ArticleEsModel();
         BeanUtils.copyProperties(article, articleEsModel);
-        System.out.println(articleEsModel.toString());
+        log.info(articleEsModel.toString());
         /**
          * 封装es对象剩余信息
          */
@@ -115,7 +115,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
         TagsEntity tagsEntity = tagsDao.selectById(article.getTid());
         articleEsModel.setTagName(tagsEntity.getTagname());
         articleEsModel.setHotScore(0L);
-        System.out.println(articleEsModel.toString());
+        log.info(articleEsModel.toString());
         //  将数据发送给es进行保存 loafblog-search
         R r = searchFeignService.addArticle(articleEsModel);
         //检查远程调用是否成功
@@ -214,6 +214,50 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
         wrapper.eq("year(publishDate)", year).eq("month(publishDate)", month);
         List<ArticleEntity> entities = articleDao.selectList(wrapper);
         return entities;
+    }
+
+    @Override
+    public void deleteByIds(List<Integer> asList) {
+        Integer id = asList.get(0);
+        R r = searchFeignService.deleteArticle(id);
+        if (r.getCode() == 0) {
+            articleService.removeById(id);
+        } else {
+            log.error("articleService.removeById删除失败");
+        }
+
+    }
+
+    @Override
+    public PageUtils queryPage3(Map<String, Object> params) {
+        String key = (String) params.get("key");
+        QueryWrapper<ArticleEntity> wrapper = new QueryWrapper<>();
+
+        if (!StringUtils.isEmpty(key)) {
+            wrapper.eq("id", key).or().like("title", key);
+        } else {
+            wrapper.eq("state", 0);
+        }
+
+        IPage<ArticleEntity> page = this.page(
+                new Query<ArticleEntity>().getPage(params),
+                wrapper
+        );
+        PageUtils pageUtils = new PageUtils(page);
+        List<ArticleEntity> records = page.getRecords();
+        List<ArticleVo> collect = records.stream().map(articleEntity -> {
+            ArticleVo vo = new ArticleVo();
+            BeanUtils.copyProperties(articleEntity, vo);
+            CategoryEntity category = categoryDao.selectById(articleEntity.getCid());
+            vo.setCateName(category.getCatename());
+            TagsEntity tagsEntity = tagsDao.selectById(articleEntity.getTid());
+            vo.setTagName(tagsEntity.getTagname());
+            return vo;
+        }).collect(Collectors.toList());
+
+        pageUtils.setList(collect);
+        return pageUtils;
+
     }
 
 

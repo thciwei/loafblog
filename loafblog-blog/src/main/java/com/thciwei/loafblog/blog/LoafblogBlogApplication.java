@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.oas.annotations.EnableOpenApi;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 
 //@EnableSwagger2
 @EnableOpenApi

@@ -23,7 +23,7 @@ public class ElasticSaveController {
         try {
 
             b = articleAddService.addArticle(articleEsModel);
-            System.out.println(articleEsModel);
+            log.info(articleEsModel.toString());
         } catch (Exception e) {
             log.error("ElasticSaveController文章添加异常:{}", e);
             return R.error(BizCodeEnum.ARTICLE_ADD_EXCEPTION.getCode(), BizCodeEnum.ARTICLE_ADD_EXCEPTION.getMsg());
@@ -37,8 +37,8 @@ public class ElasticSaveController {
             return R.error(BizCodeEnum.ARTICLE_ADD_EXCEPTION.getCode(), BizCodeEnum.ARTICLE_ADD_EXCEPTION.getMsg());
 
         }
-
-
     }
+
+
 
 }

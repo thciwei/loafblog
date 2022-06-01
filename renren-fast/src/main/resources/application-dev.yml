@@ -32,7 +32,10 @@ spring:
                 wall:
                     config:
                         multi-statement-allow: true
-
+            web-stat-filter:
+                enabled: true
+                exclusions: /druid/*,*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico
+                url-pattern: /*
 
 ##多数据源的配置
 #dynamic:

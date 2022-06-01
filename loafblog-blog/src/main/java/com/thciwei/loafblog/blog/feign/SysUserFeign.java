@@ -10,6 +10,4 @@ public interface SysUserFeign {
     @GetMapping("picture/sysuser/userNumber")
     public Integer getUserNumber();
 
-
-
 }

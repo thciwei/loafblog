@@ -29,7 +29,6 @@ public interface ArticleService extends IService<ArticleEntity> {
 
     List<ArticleVo> getTagAndCategory();
 
-    List<ArticleVo> getBlog(String title);
 
     List<CategoryEntity> getCategorys();
 
@@ -52,5 +51,9 @@ public interface ArticleService extends IService<ArticleEntity> {
     List<String> getArticleTimes();
 
     List<ArticleEntity> getByYearMonth(@Param("year") String year, @Param("month") String month);
+
+    void deleteByIds(List<Integer> asList);
+
+    PageUtils queryPage3(Map<String, Object> params);
 }
 

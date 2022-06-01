@@ -1,30 +1,38 @@
 <template>
-<div>
-  <iframe src="http://localhost:8000/swagger-ui/index.html" id="pic" scrolling="yes" frameborder="0"
-          style="position:absolute;top:0px;left: 0px;right:0px;bottom:0px;"></iframe>
-</div>
+  <div>
+    <iframe id="myIframe" :src="adminSwaggerUrl" width="100%" height="750px;"></iframe>
+  </div>
 </template>
 
 <script>
+import {Loading} from 'element-ui'
+import API from '../../../config/API'
 export default {
   name: 'PictureDoc',
-  mounted () {
-    this.changeMobsfIframe()
-    window.onresize = function () {
-      this.changeMobsfIframe()
+  data(){
+    return {
+      adminSwaggerUrl: API.PICTURE_API+"/swagger-ui/index.html",
     }
   },
+  mounted () {
+    let iframe = document.getElementById("myIframe")
+    let uploadLoading = Loading.service({
+      lock: true,
+      text: '正在努力加载中……'
+    })
+    if (iframe.attachEvent) {
+      iframe.attachEvent("onload", function () {
+        uploadLoading.close();
+      });
+    } else {
+      iframe.onload = function () {
+        uploadLoading.close();
+      };
+    }
+
+  },
   methods: {
-    /**
-     * iframe-宽高自适应显示
-     */
-    changeMobsfIframe () {
-      const mobsf = document.getElementById('pic')
-      const deviceWidth = document.body.clientWidth
-      const deviceHeight = document.body.clientHeight
-      mobsf.style.width = (Number(deviceWidth) - 240) + 'px' //数字是页面布局宽度差值
-      mobsf.style.height = (Number(deviceHeight) - 64) + 'px' //数字是页面布局高度差
-    },
+
   }
 }
 </script>

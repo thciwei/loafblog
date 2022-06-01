@@ -7,13 +7,13 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: blog_routes  # 博客管理断言
+        - id: loafblog-blog # 博客管理断言
           uri: lb://loafblog-blog
           predicates:
             - Path=/api/blog/**
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
-        - id: picture_routes  # oss存储断言
+        - id: loafblog-picture  # oss存储断言picture_routes
           uri: lb://loafblog-picture
           predicates:
             - Path=/api/picture/**
@@ -31,7 +31,7 @@ spring:
             - Path=/api/auth/**
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
-        - id: admin_routes
+        - id: renren-fast
           uri: lb://renren-fast
           predicates:
             - Path=/api/**

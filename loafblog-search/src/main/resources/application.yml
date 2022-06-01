@@ -8,6 +8,7 @@ spring:
     serialization:
       write_dates_as_timestamps: false
 
+
 management:
   endpoints:
     web:

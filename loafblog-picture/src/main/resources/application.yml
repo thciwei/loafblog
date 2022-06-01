@@ -34,6 +34,7 @@ spring:
     enabled: true
     sender: #追踪消息类型
       type: rabbit
+
   rabbitmq:
     username: guest
     password: guest

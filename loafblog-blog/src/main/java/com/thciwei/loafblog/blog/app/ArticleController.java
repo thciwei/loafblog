@@ -79,34 +79,22 @@ public class ArticleController {
     public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = articleService.queryPage(params);
 
+
         return R.ok().put("page", page);
     }
 
 
     /**
-     * 获取文章分类、标签等信息
+     * 后台展示文章信息
      *
-     * @param
+     * @param params
      * @return
      */
-    @GetMapping("/tagAndCate")
-    public R list2() {
-        List<ArticleVo> data = articleService.getTagAndCategory();
-        return R.ok().put("data", data);
+    @GetMapping("/tagCate")
+    public R datalist(@RequestParam Map<String, Object> params) {
+        PageUtils page = articleService.queryPage3(params);
 
-    }
-
-    /**
-     * 根据文章名查询
-     *
-     * @param title
-     * @return
-     */
-    @GetMapping("/name2Blog")
-    public R name2Blog(String title) {
-
-        List<ArticleVo> data = articleService.getBlog(title);
-        return R.ok().put("data", data);
+        return R.ok().put("page", page);
     }
 
     /**
@@ -169,10 +157,19 @@ public class ArticleController {
      */
     @RequestMapping("/delete")
     public R delete(@RequestBody Integer[] ids) {
-        articleService.removeByIds(Arrays.asList(ids));
+        articleService.deleteByIds(Arrays.asList(ids));
+        //articleService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
 
+
+//废弃自定义sql方法
+//    @GetMapping("/tagAndCate")
+//    public R list2() {
+//        List<ArticleVo> data = articleService.getTagAndCategory();
+//        return R.ok().put("data", data);
+//
+//    }
 
 }

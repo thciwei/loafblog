@@ -5,7 +5,7 @@
         <el-tab-pane label="博客接口" name="first" class="tag1">
           <BlogDoc></BlogDoc>
         </el-tab-pane>
-        <el-tab-pane label="登录接口" name="second"  class="tag2">
+        <el-tab-pane label="认证登录接口" name="second"  class="tag2">
           <AuthDoc></AuthDoc>
         </el-tab-pane>
         <el-tab-pane label="第三方服务接口" name="third"  class="tag3">
@@ -45,20 +45,5 @@ export default {
 </script>
 
 <style scoped>
-.taggroup .tag1 {
-  width: 1000px;
-  height: 500px
-}
-.taggroup .tag2 {
-  width: 1000px;
-  height: 500px
-}
-.taggroup .tag3 {
-  width: 1000px;
-  height: 500px
-}
-.taggroup .tag4 {
-  width: 1000px;
-  height: 500px
-}
+
 </style>

@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  description: renren-fast是一个轻量级的Java快速开发平台，能快速开发项目并交付【接私活利器】
+  description:
   version: 1.0.0
-  title: 人人快速开发平台
+  title: 快速开发平台
 
 basePath: /renren-fast
 

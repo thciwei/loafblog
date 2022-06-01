@@ -1,10 +1,3 @@
-/**
- * Copyright (c) 2016-2019 人人开源 All rights reserved.
- *
- * https://www.renren.io
- *
- * 版权所有，侵权必究！
- */
 
 package com.thciwei.common.utils;
 
@@ -13,6 +6,8 @@ import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang.StringUtils;
 import com.thciwei.common.xss.SQLFilter;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -73,4 +68,6 @@ public class Query<T> {
 
         return page;
     }
+
+
 }

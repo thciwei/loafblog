@@ -5,7 +5,7 @@
         <el-input v-model="dataForm.key" placeholder="标题名" clearable></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button @click="getblog()">查询</el-button>
+        <el-button @click="getDataList()">查询</el-button>
         <el-button type="primary" @click="addOrUpdateHandle()">新增</el-button>
         <el-button type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
       </el-form-item>
@@ -55,26 +55,6 @@
         align="center"
         label="标签">
       </el-table-column>
-      <!--      <el-table-column-->
-      <!--        prop="mdcontent"-->
-      <!--        header-align="center"-->
-      <!--        align="center"-->
-      <!--        label="md格式内容">-->
-      <!--      </el-table-column>-->
-
-      <!--      <el-table-column-->
-      <!--            prop="htmlcontent"-->
-      <!--        header-align="center"-->
-      <!--        align="center"-->
-      <!--        label="html格式内容">-->
-      <!--      </el-table-column>-->
-      <!--      <el-table-column-->
-      <!--        prop="summary"-->
-      <!--        header-align="center"-->
-      <!--        align="center"-->
-      <!--        label="梗概">-->
-      <!--      </el-table-column>-->
-
       <el-table-column
         prop="publishdate"
         header-align="center"
@@ -172,51 +152,18 @@ export default {
     AddOrUpdate
   },
   mounted () {
-    this.getDataList2()
+    this.getDataList()
+
   },
   activated () {
     this.getDataList()
   },
   methods: {
-    getblog () {
-      this.$http({
-        url: this.$http.adornUrl('/blog/article/name2Blog/?title=' + this.dataForm.key),
-        method: 'get',
-
-      }).then(({data}) => {
-        if (data && data.code === 0) {
-          this.dataList = data.data
-        } else {
-          this.dataList = []
-        }
-
-        this.dataListLoading = false
-      })
-    },
-    getDataList2 () {
-      this.$http({
-        url: this.$http.adornUrl('/blog/article/tagAndCate'),
-        method: 'get',
-        params: this.$http.adornParams({
-          'page': this.pageIndex,
-          'limit': this.pageSize,
-          'key': this.dataForm.key
-        })
-      }).then(({data}) => {
-        if (data && data.code === 0) {
-          this.dataList = data.data
-        } else {
-          this.dataList = []
-        }
-
-        this.dataListLoading = false
-      })
-    },
     // 获取数据列表
     getDataList () {
       this.dataListLoading = true
       this.$http({
-        url: this.$http.adornUrl('/blog/article/list'),
+        url: this.$http.adornUrl('/blog/article/tagCate'),
         method: 'get',
         params: this.$http.adornParams({
           'page': this.pageIndex,
@@ -225,7 +172,7 @@ export default {
         })
       }).then(({data}) => {
         if (data && data.code === 0) {
-          // this.dataList = data.page.list
+          this.dataList = data.page.list
           this.totalPage = data.page.totalCount
         } else {
           this.dataList = []
