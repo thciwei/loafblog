@@ -183,5 +183,5 @@
 
 **移动端**
 
-![](https://github.com/thciwei/theVhr/blob/main/springboot_vhr/src/assets/006yRl4Gly1gwxga1vkrfg30910jme87.gif)
+![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxga1vkrfg30910jme87.gif)
 
