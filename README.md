@@ -183,5 +183,5 @@
 
 **移动端**
 
-![](./doc/images/loafuniapp.gif)
+![image text](./doc/images/loafuniapp.gif)
 
