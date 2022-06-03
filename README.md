@@ -65,7 +65,7 @@
 
 ##### 技术架构
 
-![](http://tva1.sinaimg.cn/large/006yRl4Gly1h2czfhwmuuj321d1ejb29.jpg)
+![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1h2czfhwmuuj321d1ejb29.jpg)
 
 > 面包博客架构图由 [ProcessOn](https://www.processon.com/) 绘制
 
@@ -166,22 +166,22 @@
 
 | WEB端                                                        |                                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg7vxobhj31hc0oz7fm.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9iw6hij31hc0oz45a.jpg) |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9mgahoj31hc0ozqa2.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9n3q8nj31hc0oz7bg.jpg) |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9ogbuxj31hc0ozn4w.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rk2ebj31hc0oztkg.jpg) |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rl7b5j31hc0oz799.jpg) |                                                              |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg7vxobhj31hc0oz7fm.jpg) | ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9iw6hij31hc0oz45a.jpg) |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9mgahoj31hc0ozqa2.jpg) | ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9n3q8nj31hc0oz7bg.jpg) |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9ogbuxj31hc0ozn4w.jpg) | ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rk2ebj31hc0oztkg.jpg) |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rl7b5j31hc0oz799.jpg) |                                                              |
 | **管理端**                                                   |                                                              |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9uuq8pj31hc0ozwrl.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9wok0ej31hc0oz110.jpg) |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9yb2qxj31hc0ozdr0.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9zj8otj31hc0ozajm.jpg) |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxga113zij31hc0ozwo9.jpg) | ![admin_4.png](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxgov2tgmj31hc0oz4as.jpg) |
-| ![admin_5.png](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxgpoyqc5j31hc0oz7jk.jpg) |                                                              |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9uuq8pj31hc0ozwrl.jpg) | ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9wok0ej31hc0oz110.jpg) |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9yb2qxj31hc0ozdr0.jpg) | ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9zj8otj31hc0ozajm.jpg) |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxga113zij31hc0ozwo9.jpg) | ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxgov2tgmj31hc0oz4as.jpg) |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxgpoyqc5j31hc0oz7jk.jpg) |                                                              |
 | **监控**                                                     |                                                              |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rakn4j31hc0oz49q.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vrjaqj31hc0oz7a7.jpg) |
-| ![](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vzl6fj31hc0oz7df.jpg) | ![](http://tva1.sinaimg.cn/large/006yRl4Gly1h2cdhod7ypj31g00oxk3f.jpg) |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9rakn4j31hc0oz49q.jpg) | ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vrjaqj31hc0oz7a7.jpg) |
+| ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1gwxg9vzl6fj31hc0oz7df.jpg) | ![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1h2cdhod7ypj31g00oxk3f.jpg) |
 
 
 
 **移动端**
 
-![](./doc/images/loafuniapp.gif)
+![image text](./doc/images/loafuniapp.gif)
 
