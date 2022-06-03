@@ -1,5 +1,5 @@
 version: "3.0"
-
+#docker-compose 文件样例
 services:
   loafblog-gateway:
     image: thciwei/loafblog-gateway

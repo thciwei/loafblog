@@ -1,0 +1,20 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - D:/biyesheji/loaf-blog/loafblog/logs/loafblog-gateway/*.log
+  fields:
+    from: loafblog-gateway
+  fields_under_root: true
+
+- type: log
+  enabled: true
+  paths:
+    - D:/biyesheji/loaf-blog/loafblog/logs/loafblog-blog/*.log
+  fields:
+    from: loafblog-blog
+  fields_under_root: true
+setup.template.settings:
+  index.number_of_shards: 1
+output.logstash:
+  hosts: ["127.0.0.1:5044"]
