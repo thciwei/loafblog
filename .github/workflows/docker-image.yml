@@ -31,14 +31,6 @@ jobs:
 
       - name: 构建前端镜像 Build vue web
         run: |
-          echo '======= 开始构建loafblog_vue ======='
-
-          cd ./loafblog_vue
-
-          npm install
-          npm run build
-          docker build -t thciwei/loafblog_vue .
-          cd ..
           echo '======= 开始构建前端镜像 ======='
           echo '======= 开始构建loafblog_vue_web ======='
           cd ./loafblog_vue_web
@@ -81,8 +73,7 @@ jobs:
           docker images
           echo '======= 开始上传镜像 ======='
 
-          echo '======= 开始上传loafblog_vue ======='
-          docker push thciwei/loafblog_vue
+  
          
           echo '======= 开始上传loafblog-blog ======='
           docker push thciwei/loafblog-blog
