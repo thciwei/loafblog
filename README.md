@@ -1,6 +1,6 @@
 # 面包博客
 <div align="center">
-<img src="http://tva1.sinaimg.cn/large/006yRl4Gly1h2cytl2jy8j305k05kwey.jpg"/>
+<img src="https://gulimall-wqs.oss-cn-beijing.aliyuncs.com/typora/202212301416617.jpg"/>
     <p >
         面包博客,一个微服务架构的前后端分离博客系统
     </p>
@@ -37,8 +37,6 @@
 * 通过**Github Action**将服务统一打包成镜像，使用**DockerCompose**进行容器编排，实现**CI/CD**
 
 #### 站点演示
-* [面包博客简易演示地址，门户网站](http://8.129.122.160:8888/)
-* [面包博客简易演示地址，管理后台](http://8.129.122.160:8001/) 账号 visitor 密码 123
 * 由于服务器过于轻量，只启动少量模块
 #### 项目地址
 * Gitee地址：https://gitee.com/thciweicloud/loafblog
@@ -64,7 +62,7 @@
 
 ##### 技术架构
 
-![image text](http://tva1.sinaimg.cn/large/006yRl4Gly1h2czfhwmuuj321d1ejb29.jpg)
+![image text](https://gulimall-wqs.oss-cn-beijing.aliyuncs.com/typora/202212301416008.jpg)
 
 > 面包博客架构图由 [ProcessOn](https://www.processon.com/) 绘制
 
