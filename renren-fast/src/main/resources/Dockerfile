@@ -1,4 +1,4 @@
-FROM java:alpine
+FROM java:8-alpine
 EXPOSE 8080
 
 VOLUME /tmp
