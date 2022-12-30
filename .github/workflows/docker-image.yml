@@ -138,8 +138,8 @@ jobs:
 
 
 
-          echo '=====镜像上传结束====='
-          echo '=====开始自动部署====='
+          echo '=====镜像上传结束======'
+          echo '=====开始自动部署======'
 
       - name: 部署到服务器 Start loafblog
         uses: appleboy/ssh-action@master
