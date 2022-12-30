@@ -182,5 +182,5 @@
 
 **移动端**
 
-![image text](./doc/images/loafuniapp.gif)
+![image text](https://gulimall-wqs.oss-cn-beijing.aliyuncs.com/loafuniapp.gif)
 
