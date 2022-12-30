@@ -43,7 +43,7 @@ jobs:
 
 
 
-      - name: Build Server Images
+      - name: 构建后端镜像Build Server Images
         run: |
           echo '======= 开始构建后端镜像 ======='
 
@@ -68,7 +68,7 @@ jobs:
 
 
 
-      - name: push Images to DockerHub
+      - name: 推送镜像push Images to DockerHub
         run: |
           docker images
           echo '======= 开始上传镜像 ======='
