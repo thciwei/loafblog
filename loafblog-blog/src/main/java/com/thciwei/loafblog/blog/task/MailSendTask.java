@@ -1,10 +1,10 @@
 package com.thciwei.loafblog.blog.task;
 
+import com.alibaba.fastjson.JSON;
 import com.thciwei.common.constant.MailConstants;
 import com.thciwei.loafblog.blog.dao.MailSendLogDao;
 import com.thciwei.loafblog.blog.entity.MailSendLogEntity;
 import com.thciwei.loafblog.blog.entity.WebsiteinfoEntity;
-import com.thciwei.loafblog.blog.service.MailSendLogService;
 import com.thciwei.loafblog.blog.service.WebsiteinfoService;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -36,7 +36,8 @@ public class MailSendTask {
             } else {
                 mailSendLogDao.updateCount(mailSendLog.getMsgId(), new Date());
                 WebsiteinfoEntity websiteinfo = websiteinfoService.getById(mailSendLog.getWebsiteId());
-                rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME, MailConstants.MAIL_ROUTING_KEY_NAME, websiteinfo, new CorrelationData(mailSendLog.getMsgId()));
+                //将发送对象序列化
+                rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME, MailConstants.MAIL_ROUTING_KEY_NAME, JSON.toJSONString(websiteinfo), new CorrelationData(mailSendLog.getMsgId()));
             }
         });
     }

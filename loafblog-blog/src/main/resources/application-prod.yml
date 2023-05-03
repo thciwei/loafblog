@@ -1,28 +1,18 @@
-server:
-  port: 8000
-unisms:
-  ACCESS_KEY_ID: PYe1TGYxmcwFkZxrJUXQvQgcrQnpjBPqUdz4ZiKwhQQXy3XrL
-  signature: 伞的故事
-  templateId: 48f48007
+# 应用名称
 spring:
-  application:
-    name: loafblog-picture
-  cloud:
-    alicloud:
-      access-key: LTAI5tBKticuE4GnKjdzUmx6
-      secret-key: EAVjuJaAXB9yZLSPV2k4rsbtdq6860
-      oss:
-        endpoint: oss-cn-beijing.aliyuncs.com
-        bucket: gulimall-wqs
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://8.129.122.160:3306/loafblog_blog?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
-    url: jdbc:mysql://192.168.145.132:3306/loafblog_admin?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-  servlet:
-    multipart:
-      max-file-size: 10MB
-      max-request-size: 100MB
+  redis:
+    host: 192.168.145.132
+    port: 6379
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write_dates_as_timestamps: false
+    time-zone: GMT+8
   sleuth:
     web:
       client:
@@ -32,22 +22,28 @@ spring:
   zipkin:
     base-url: http://192.168.145.132:9411 #地址
     enabled: true
-    sender: #追踪消息类型
+    sender:  #追踪消息类型
       type: rabbit
-
   rabbitmq:
     username: guest
     password: guest
     host: 192.168.145.132
     port: 5672
+    publisher-returns: true
+    publisher-confirm-type: correlated
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
-fastdfs:
-  nginx:
-    host: http://8.129.122.160/
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+# 应用服务 WEB 访问端口
+server:
+  port: 7000
+logging:
+  level:
+    com.thciwei.loafblog.blog: debug
 management:
   endpoints:
     web:
@@ -62,3 +58,6 @@ management:
     export:
       prometheus:
         enabled: true
+
+
+

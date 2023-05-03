@@ -1,5 +1,6 @@
 package com.thciwei.loafblog.blog.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -10,7 +11,6 @@ import com.thciwei.loafblog.blog.dao.MailSendLogDao;
 import com.thciwei.loafblog.blog.dao.WebsiteinfoDao;
 import com.thciwei.loafblog.blog.entity.MailSendLogEntity;
 import com.thciwei.loafblog.blog.entity.WebsiteinfoEntity;
-import com.thciwei.loafblog.blog.service.MailSendLogService;
 import com.thciwei.loafblog.blog.service.WebsiteinfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -57,11 +57,11 @@ public class WebsiteinfoServiceImpl extends ServiceImpl<WebsiteinfoDao, Websitei
         Integer result = websiteinfoDao.insertGetId(websiteinfo);
         if (result == 1) {
             WebsiteinfoEntity websiteinfoEntity = this.baseMapper.selectById(websiteinfo.getId());
-            //打印student对象，作为检查
-            log.info(websiteinfoEntity.toString());
+            //打印对象，作为检查
+            log.info("消息对象:{}"+websiteinfoEntity.toString());
             //生成消息唯一id
             String msgId = UUID.randomUUID().toString();
-            System.out.println(msgId);
+            log.info("消息唯一id:{}" + msgId);
             MailSendLogEntity mailSendLog = new MailSendLogEntity();
             mailSendLog.setMsgId(msgId);
             mailSendLog.setCreateTime(new Date());
@@ -70,9 +70,9 @@ public class WebsiteinfoServiceImpl extends ServiceImpl<WebsiteinfoDao, Websitei
             mailSendLog.setWebsiteId(websiteinfoEntity.getId());
             mailSendLog.setTryTime(new Date(System.currentTimeMillis() + 1000 * 60 * MailConstants.MSG_TIMEOUT));
             mailSendLogDao.insertMail(mailSendLog);
-            rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME, MailConstants.MAIL_ROUTING_KEY_NAME, websiteinfoEntity, new CorrelationData(msgId));
+            rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME, MailConstants.MAIL_ROUTING_KEY_NAME, JSON.toJSONString(websiteinfoEntity), new CorrelationData(msgId));
             //查看消息是否被消费
-            rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME, MailConstants.MAIL_ROUTING_KEY_NAME, websiteinfoEntity, new CorrelationData(msgId));
+            rabbitTemplate.convertAndSend(MailConstants.MAIL_EXCHANGE_NAME, MailConstants.MAIL_ROUTING_KEY_NAME, JSON.toJSONString(websiteinfoEntity), new CorrelationData(msgId));
 
 
         }

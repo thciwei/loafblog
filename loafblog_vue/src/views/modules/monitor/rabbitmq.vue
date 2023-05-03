@@ -33,7 +33,7 @@ export default {
         title:'监控界面',
         message: '请关闭弹窗拦截'
       });
-      window.open('http://8.129.122.160:15672/')
+      window.open('http://192.168.145.132:15672/')
     }
   }
 }

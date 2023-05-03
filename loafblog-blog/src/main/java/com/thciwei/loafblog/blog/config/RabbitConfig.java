@@ -1,5 +1,6 @@
 package com.thciwei.loafblog.blog.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thciwei.common.constant.MailConstants;
 import com.thciwei.loafblog.blog.dao.MailSendLogDao;
 import org.slf4j.Logger;
@@ -10,10 +11,16 @@ import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @author thciwei
+ */
 @Configuration
 public class RabbitConfig {
     public final static Logger logger = LoggerFactory.getLogger(RabbitConfig.class);
@@ -21,6 +28,7 @@ public class RabbitConfig {
     CachingConnectionFactory cachingConnectionFactory;
     @Autowired
     MailSendLogDao mailSendLogDao;
+
 
     @Bean
     RabbitTemplate rabbitTemplate() {
@@ -69,5 +77,19 @@ public class RabbitConfig {
     Binding mailBinding() {
         return BindingBuilder.bind(mailQueue()).to(mailExchange()).with(MailConstants.MAIL_ROUTING_KEY_NAME);
     }
+/**
+ * 可能能解决序列化报错问题
+ */
+//    /**
+//     * 解决方法:添加这个类进行序列化解析
+//     * 会自动识别
+//     * @param objectMapper json序列化实现类
+//     * @return mq 消息序列化工具
+//     */
+//    @Bean
+//    public MessageConverter jsonMessageConverter(ObjectMapper objectMapper) {
+//        return new Jackson2JsonMessageConverter(objectMapper);
+//    }
+
 
 }

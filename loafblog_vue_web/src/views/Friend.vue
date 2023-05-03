@@ -58,11 +58,12 @@ export default {
   },
   methods: {
     initWebsiteInfo() {
-      this.getRequest("/blog/websiteinfo/list").then(resp => {
+      this.getRequest("/blog/websiteinfo/AllList").then(resp => {
         if (resp) {
-          this.list = resp.page.list
+          console.log(resp)
+          this.list = resp.page
         }
-        console.log(resp)
+
       })
     },
     // fetchFriend() {

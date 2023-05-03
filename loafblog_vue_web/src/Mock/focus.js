@@ -16,7 +16,7 @@ export default [
                     {
                         id: 2,
                         title: '项目地址',
-                        img: 'https://gitee.com/thciweicloud/tmp/raw/master/tutu.jpg',
+                        img: 'https://s1.ax1x.com/2020/05/14/YDfT91.jpg',
                         href: 'about'
                     },
                     {

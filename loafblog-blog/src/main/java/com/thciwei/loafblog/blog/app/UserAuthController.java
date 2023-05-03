@@ -11,6 +11,7 @@ import com.thciwei.loafblog.blog.service.UserAuthService;
 import com.thciwei.loafblog.blog.vo.SocialUser;
 import com.thciwei.loafblog.blog.vo.UserLoginVo;
 import com.thciwei.loafblog.blog.vo.UserRegistVo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,7 @@ import java.util.Map;
  * @email wangqiaosong@gmail.com
  * @date 2021-10-05 17:10:35
  */
+@Slf4j
 @RestController
 @RequestMapping("blog/userauth")
 public class UserAuthController {
@@ -37,6 +39,7 @@ public class UserAuthController {
      */
     @PostMapping("/oauth2/login")
     public R oauthlogin(@RequestBody SocialUser socialUser,@RequestParam("token") String token ) throws Exception {
+       log.info("由auth模块传过来的token为:{}",token);
         UserAuthEntity entity = userAuthService.login(socialUser, token);
         if (entity != null) {
             return R.ok().setData(entity);

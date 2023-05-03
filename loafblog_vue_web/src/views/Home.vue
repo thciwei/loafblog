@@ -187,8 +187,6 @@ export default {
          })
 
 
-
-
     },
     fetchFocus() {
       fetchFocus().then(res => {

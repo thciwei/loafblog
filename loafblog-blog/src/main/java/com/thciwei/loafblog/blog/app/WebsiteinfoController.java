@@ -1,13 +1,15 @@
 package com.thciwei.loafblog.blog.app;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.thciwei.loafblog.blog.entity.WebsiteinfoEntity;
 import com.thciwei.loafblog.blog.service.WebsiteinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.thciwei.loafblog.blog.entity.WebsiteinfoEntity;
 import com.thciwei.common.utils.PageUtils;
 import com.thciwei.common.utils.R;
 
@@ -19,7 +21,7 @@ import com.thciwei.common.utils.R;
  */
 @RestController
 @RequestMapping("blog/websiteinfo")
-public class    WebsiteinfoController {
+public class WebsiteinfoController {
     @Autowired
     private WebsiteinfoService websiteinfoService;
 
@@ -31,6 +33,12 @@ public class    WebsiteinfoController {
         PageUtils page = websiteinfoService.queryPage(params);
 
         return R.ok().put("page", page);
+    }
+
+    @RequestMapping("/AllList")
+    public R list() {
+        List<WebsiteinfoEntity> list = websiteinfoService.list();
+        return R.ok().put("page", list);
     }
 
 

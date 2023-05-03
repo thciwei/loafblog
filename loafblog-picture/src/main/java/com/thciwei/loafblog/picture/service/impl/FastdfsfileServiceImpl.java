@@ -1,5 +1,7 @@
 package com.thciwei.loafblog.picture.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +20,7 @@ import com.thciwei.loafblog.picture.service.FastdfsfileService;
 
 @Service("fastdfsfileService")
 public class FastdfsfileServiceImpl extends ServiceImpl<FastdfsfileDao, FastdfsfileEntity> implements FastdfsfileService {
+    private static Logger logger = LoggerFactory.getLogger(FastdfsfileServiceImpl.class);
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -34,6 +37,7 @@ public class FastdfsfileServiceImpl extends ServiceImpl<FastdfsfileDao, Fastdfsf
         FastdfsfileEntity fastdfsfileEntity = new FastdfsfileEntity();
         fastdfsfileEntity.setFastname(fieldId);
         fastdfsfileEntity.setUrl(url);
+        logger.info("图片地址为{}", url);
         return this.baseMapper.insert(fastdfsfileEntity);
 
     }

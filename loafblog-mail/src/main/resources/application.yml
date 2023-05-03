@@ -9,8 +9,8 @@ spring:
     protocol: smtp
     host: smtp.qq.com
     default-encoding: UTF-8
-    password: zreoenxuafzjgfig
-    username: xxxx
+    password: zzdulfgwblvnjjfb
+    username: 1462106316@qq.com
     port: 587
     properties:
       mail:
@@ -20,7 +20,7 @@ spring:
   rabbitmq:
     username: guest
     password: guest
-    host: 8.129.122.160
+    host: 192.168.145.132
     port: 5672
     listener:
       simple:

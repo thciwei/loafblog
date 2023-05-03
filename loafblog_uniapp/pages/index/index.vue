@@ -86,21 +86,22 @@
 					pageNum: 1,
 				},
 
-				list: [{
-						image: 'http://gulimall-wqs.oss-cn-beijing.aliyuncs.com/2021-09-13/ba5cc7eed880cdba69b4571e7d63b821.jpg',
-						title: 'Git学习资料',
-						id:3
+				list: [
+					{
+						image: 'http://8.129.122.160/group1/M00/00/00/CIF6oGRSKt6AQ3YwAACuuDVT7jk173.jpg',
+						title: 'Docker的基本使用',
+						id:35
+					},{
+						image: 'http://gulimall-wqs.oss-cn-beijing.aliyuncs.com/2023-05-03/a55e3b16-da91-4327-842c-bb9ba08a2ec8_logo.png',
+						title: 'Spring Cloud学习笔记',
+						id:31
 					},
 					{
-						image: 'http://gulimall-wqs.oss-cn-beijing.aliyuncs.com/2021-09-13/1605004575968.jpg',
-						title: 'Ajax上传图片以及上传之前先预览',
-						id:2
+						image: 'http://gulimall-wqs.oss-cn-beijing.aliyuncs.com/typora/202301201618526.png',
+						title: '整合阿里云oss',
+						id:32
 					},
-					{
-						image: 'http://gulimall-wqs.oss-cn-beijing.aliyuncs.com/9c8e6b18509311ad8d74cfdb4da52c60_1440w.png',
-						title: 'docker入门',
-						id:19
-					}
+					
 				],
 			}
 		},

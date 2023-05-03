@@ -1,7 +1,9 @@
 package com.thciwei.loafblog.mail.receiver;
 
+import com.alibaba.fastjson.JSON;
 import com.rabbitmq.client.Channel;
 import com.thciwei.common.constant.MailConstants;
+
 import com.thciwei.common.entity.WebsiteinfoEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -43,7 +45,9 @@ public class MailReceiver {
      */
     @RabbitListener(queues = MailConstants.MAIL_QUEUE_NAME)
     public void handler(Message message, Channel channel) throws IOException {
-        WebsiteinfoEntity websiteinfoEntity = (WebsiteinfoEntity) message.getPayload();
+       // WebsiteinfoEntity websiteinfoEntity = (WebsiteinfoEntity) message.getPayload();
+       WebsiteinfoEntity websiteinfoEntity = JSON.parseObject((String) message.getPayload(), WebsiteinfoEntity.class);
+
         MessageHeaders headers = message.getHeaders();
         Long tag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
         String msgId = (String) headers.get("spring_returned_message_correlation");

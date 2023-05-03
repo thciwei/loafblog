@@ -23,7 +23,7 @@ public class ElasticSaveController {
         try {
 
             b = articleAddService.addArticle(articleEsModel);
-            log.info(articleEsModel.toString());
+            log.info("es存入文章:{}",articleEsModel.toString());
         } catch (Exception e) {
             log.error("ElasticSaveController文章添加异常:{}", e);
             return R.error(BizCodeEnum.ARTICLE_ADD_EXCEPTION.getCode(), BizCodeEnum.ARTICLE_ADD_EXCEPTION.getMsg());

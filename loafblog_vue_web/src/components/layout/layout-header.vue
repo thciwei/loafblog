@@ -133,7 +133,7 @@ export default {
       btnDisabled: false,
       btnText: '获取验证码',
 
-      avatar: "https://gitee.com/thciweicloud/tmp/raw/master/admin.png",
+      avatar: "https://gulimall-wqs.oss-cn-beijing.aliyuncs.com/admin.png",
       ruleForm: {
         loginacct: '',
         password: ''

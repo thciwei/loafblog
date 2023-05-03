@@ -15,6 +15,12 @@ public class ElasticController {
     @Autowired
     BlogService blogService;
 
+    /**
+     * 关联着loafblog-blog，从es中也删除
+     * @param id
+     * @return
+     * @throws IOException
+     */
     @PostMapping("/deleteById")
     public R deleteArticle(@RequestParam("id") Integer id) throws IOException {
         Integer res = blogService.deleteEsById(id);

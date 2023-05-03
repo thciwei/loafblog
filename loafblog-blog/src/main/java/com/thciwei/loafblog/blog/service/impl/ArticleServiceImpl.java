@@ -216,11 +216,18 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
         return entities;
     }
 
+    /**
+     * 级联删除数据库article和ES数据
+     * @param asList
+     */
+    @Transactional
     @Override
     public void deleteByIds(List<Integer> asList) {
         Integer id = asList.get(0);
         R r = searchFeignService.deleteArticle(id);
+        log.info("删除返回code:{}",r.getCode());
         if (r.getCode() == 0) {
+            log.info("删除成功文章,数据库id为:{}",id);
             articleService.removeById(id);
         } else {
             log.error("articleService.removeById删除失败");

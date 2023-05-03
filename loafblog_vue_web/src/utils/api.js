@@ -10,7 +10,7 @@ axios.interceptors.response.use(success => {
     return;
   }
   if (success.data.msg) {
-    Message.success({message: success.data.msg})
+    // Message.success({message: success.data.msg})
 
   }
 
@@ -36,8 +36,9 @@ axios.interceptors.response.use(success => {
   return;
 })
 
-let base = '';
-
+// let base = '';
+//生产环境
+let base = 'http://8.129.122.160:88/api';
 export const postKeyValueRequest = (url, params) => {
   return axios({
     method: 'post',

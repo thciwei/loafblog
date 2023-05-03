@@ -2,7 +2,9 @@ package com.thciwei.common.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -13,6 +15,8 @@ import java.io.Serializable;
  * @email wangqiaosong@gmail.com
  * @date 2021-09-16 19:05:42
  */
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @TableName("websiteInfo")
 public class WebsiteinfoEntity implements Serializable {

@@ -8,11 +8,11 @@ export default [
             return {
                 code: 20000,
                 data: {
-                    // avatar: 'https://s2.ax1x.com/2020/01/17/1SCadg.png',
-                    avatar: 'https://gitee.com/thciweicloud/tmp/raw/master/ciwei.png',
+                    avatar: 'https://s2.ax1x.com/2020/01/17/1SCadg.png',
+                    // avatar: 'https://gulimall-wqs.oss-cn-beijing.aliyuncs.com/admin.png,
                     slogan: 'The way up is not crowded, and most chose ease.',
-                    name: 'FZY′blog',
-                    domain: 'https://www.fengziy.cn',
+                    name: 'wqs′blog',
+                    domain: 'http://loafblog.com',
                     notice: '本博客的Demo数据由Mockjs生成',
                     desc: '一个It技术的探索者'
                 }

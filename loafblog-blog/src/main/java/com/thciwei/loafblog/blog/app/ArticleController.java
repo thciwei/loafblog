@@ -153,7 +153,7 @@ public class ArticleController {
     }
 
     /**
-     * 删除
+     * 删除-逻辑删除，仍保留在数据库
      */
     @RequestMapping("/delete")
     public R delete(@RequestBody Integer[] ids) {
@@ -165,11 +165,11 @@ public class ArticleController {
 
 
 //废弃自定义sql方法
-//    @GetMapping("/tagAndCate")
-//    public R list2() {
-//        List<ArticleVo> data = articleService.getTagAndCategory();
-//        return R.ok().put("data", data);
-//
-//    }
+    @GetMapping("/tagAndCate")
+    public R list2() {
+        List<ArticleVo> data = articleService.getTagAndCategory();
+        return R.ok().put("data", data);
+
+    }
 
 }

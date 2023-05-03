@@ -40,9 +40,8 @@ import java.io.IOException;
 import java.util.Arrays;
 
 
-
 @Slf4j
-@Api(value="第三方登录",tags={"用户操作接口"})
+@Api(value = "第三方登录", tags = {"用户操作接口"})
 @RestController
 @RequestMapping("auth")
 public class RestAuthController {
@@ -51,6 +50,122 @@ public class RestAuthController {
 
     @Autowired
     AuthStateRedisCache stateRedisCache;
+
+
+    /**
+     *
+     */
+    @RequestMapping(value = "/render/{source}")
+    @ResponseBody
+    public R renderAuth(@PathVariable("source") String source, HttpServletResponse response) throws IOException {
+        log.info("进入render：" + source);
+        AuthRequest authRequest = getAuthRequest(source);
+        String authorizeUrl = authRequest.authorize(AuthStateUtils.createState());
+        log.info(authorizeUrl);
+        //response.sendRedirect(authorizeUrl);
+        return R.ok().put("url", authorizeUrl);
+    }
+
+    /**
+     * oauth平台中配置的授权回调地址，以本项目为例，在创建github授权应用时的回调地址应为：http://127.0.0.1:8443/oauth/callback/github
+     */
+    @RequestMapping("/{source}/success")
+    public R login(@PathVariable("source") String source, AuthCallback callback, HttpServletRequest request, HttpServletResponse servletResponse, HttpSession session) throws Exception {
+
+        log.info("进入callback：" + source + " callback params：" + JSONObject.toJSONString(callback));
+        AuthRequest authRequest = getAuthRequest(source);
+        AuthResponse<AuthUser> response = authRequest.login(callback);
+        log.info("JSONObject:{}", JSONObject.toJSONString(response.getData()));
+        AuthUser data = response.getData();
+        String token = JwtUtil.createToken(data.getUsername(), data.getAvatar(), data.getUuid());
+        log.info("token为:{}", token);
+        SocialUser socialUser = new SocialUser();
+        socialUser.setUid(data.getUuid());
+        socialUser.setAccess_token(data.getToken().getAccessToken());
+        socialUser.setExpires_in(data.getToken().getExpireIn());
+        R r = blogFeignService.oauthlogin(socialUser, token);
+        if (r.getCode() == 0) {
+            servletResponse.sendRedirect("http://loafblog.com" + "?accessToken=" + token);
+            return R.ok();
+        } else {
+            return R.error();
+        }
+
+
+    }
+
+    @GetMapping("/{token}")
+    public R getOauthUserInfo(@PathVariable("token") String token) {
+        R r = JwtUtil.parse(token);
+        return r;
+    }
+
+
+    /**
+     * 根据具体的授权来源，获取授权请求工具类
+     *
+     * @param source
+     * @return
+     */
+    private AuthRequest getAuthRequest(String source) {
+        AuthRequest authRequest = null;
+        switch (source.toLowerCase()) {
+            case "github":
+                authRequest = new AuthGithubRequest(AuthConfig.builder()
+                        .clientId("7a08e63c9ee67f3e9f2c")
+                        .clientSecret("9b45256ec8e375c22e396d941e438b741590e3ac")
+                        .redirectUri("http://loafblog.com/auth/github/success")
+                        .scopes(AuthScopeUtils.getScopes(AuthGithubScope.values()))
+                        // 针对国外平台配置代理
+//                        .httpConfig(HttpConfig.builder()
+//                                .timeout(15000)
+//                                .proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10080)))
+//                                .build())
+                        .build(), stateRedisCache);
+                break;
+            case "gitee":
+                authRequest = new AuthGiteeRequest(AuthConfig.builder()
+                        .clientId("ee4e80ad0c820be2eae90d3fbfe8b6cf63a243bcff62b2b939ebaa0d0842a0b4")
+                        .clientSecret("b69b6a62360073bc861ed1721166cc203d77c71f395c2eba8966a61c56e3d39b")
+                        .redirectUri("http://loafblog.com/auth/gitee/success")
+//                        .scopes(AuthScopeUtils.getScopes(AuthGiteeScope.values()))
+                        .build(), stateRedisCache);
+                break;
+            case "weibo":
+                authRequest = new AuthWeiboRequest(AuthConfig.builder()
+                        .clientId("1571070261")
+                        .clientSecret("b5404b6639bd14d2517e5834e3af0a3b")
+                        .redirectUri("http://loafblog.com/auth/weibo/success")
+                        .scopes(Arrays.asList(
+                                AuthWeiboScope.EMAIL.getScope(),
+                                AuthWeiboScope.FRIENDSHIPS_GROUPS_READ.getScope(),
+                                AuthWeiboScope.STATUSES_TO_ME_READ.getScope()
+                        ))
+                        .build());
+                break;
+            case "qq":
+                authRequest = new AuthQqRequest(AuthConfig.builder()
+                        .clientId("")
+                        .clientSecret("")
+                        .redirectUri("http://localhost:8443/oauth/callback/qq")
+                        .build());
+                break;
+            case "wechat_open":
+                authRequest = new AuthWeChatOpenRequest(AuthConfig.builder()
+                        .clientId("")
+                        .clientSecret("")
+                        .redirectUri("http://www.zhyd.me/oauth/callback/wechat")
+                        .build());
+                break;
+            default:
+                break;
+        }
+        if (null == authRequest) {
+            throw new AuthException("未获取到有效的Auth配置");
+        }
+        return authRequest;
+    }
+
 //
 //    @GetMapping("/weibo/success")
 //    public R weibo(@RequestParam("code") String code, HttpServletResponse httpServletResponse, HttpSession session) throws Exception {
@@ -93,120 +208,4 @@ public class RestAuthController {
 //
 //
 //    }
-
-    /**
-     *
-     */
-    @RequestMapping(value = "/render/{source}")
-    @ResponseBody
-    public R renderAuth(@PathVariable("source") String source, HttpServletResponse response) throws IOException {
-        log.info("进入render：" + source);
-        AuthRequest authRequest = getAuthRequest(source);
-        String authorizeUrl = authRequest.authorize(AuthStateUtils.createState());
-        log.info(authorizeUrl);
-        //response.sendRedirect(authorizeUrl);
-        return R.ok().put("url", authorizeUrl);
-    }
-
-    /**
-     * oauth平台中配置的授权回调地址，以本项目为例，在创建github授权应用时的回调地址应为：http://127.0.0.1:8443/oauth/callback/github
-     */
-    @RequestMapping("/{source}/success")
-    public R login(@PathVariable("source") String source, AuthCallback callback, HttpServletRequest request, HttpServletResponse servletResponse, HttpSession session) throws Exception {
-
-        log.info("进入callback：" + source + " callback params：" + JSONObject.toJSONString(callback));
-        AuthRequest authRequest = getAuthRequest(source);
-        AuthResponse<AuthUser> response = authRequest.login(callback);
-        log.info(JSONObject.toJSONString(response.getData()));
-        AuthUser data = response.getData();
-        String token = JwtUtil.createToken(data.getUsername(), data.getAvatar(),data.getUuid());
-
-        SocialUser socialUser = new SocialUser();
-        socialUser.setUid(data.getUuid());
-        socialUser.setAccess_token(data.getToken().getAccessToken());
-        socialUser.setExpires_in(data.getToken().getExpireIn());
-        R r = blogFeignService.oauthlogin(socialUser,token);
-        if (r.getCode() == 0) {
-            servletResponse.sendRedirect("http://loafblog.com" + "?accessToken=" + token);
-            return R.ok();
-        }else {
-            return R.error();
-        }
-
-
-    }
-
-    @GetMapping("/{token}")
-    public R getOauthUserInfo(@PathVariable("token") String token) {
-        R r = JwtUtil.parse(token);
-        return r;
-    }
-
-
-    /**
-     * 根据具体的授权来源，获取授权请求工具类
-     *
-     * @param source
-     * @return
-     */
-    private AuthRequest getAuthRequest(String source) {
-        AuthRequest authRequest = null;
-        switch (source.toLowerCase()) {
-            case "github":
-                authRequest = new AuthGithubRequest(AuthConfig.builder()
-                        .clientId("7a08e63c9ee67f3e9f2c")
-                        .clientSecret("9b45256ec8e375c22e396d941e438b741590e3ac")
-                        .redirectUri("http://loafblog.com/auth/github/success")
-                        .scopes(AuthScopeUtils.getScopes(AuthGithubScope.values()))
-                        // 针对国外平台配置代理
-//                        .httpConfig(HttpConfig.builder()
-//                                .timeout(15000)
-//                                .proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10080)))
-//                                .build())
-                        .build(), stateRedisCache);
-                break;
-            case "gitee":
-                authRequest = new AuthGiteeRequest(AuthConfig.builder()
-                        .clientId("ee4e80ad0c820be2eae90d3fbfe8b6cf63a243bcff62b2b939ebaa0d0842a0b4")
-                        .clientSecret("5806f57f19a7d5e6ddcb11025c5ac0c9af66522af3fef20936bad622c658d1cf")
-                        .redirectUri("http://loafblog.com/auth/gitee/success")
-//                        .scopes(AuthScopeUtils.getScopes(AuthGiteeScope.values()))
-                        .build(), stateRedisCache);
-                break;
-            case "weibo":
-                authRequest = new AuthWeiboRequest(AuthConfig.builder()
-                        .clientId("1571070261")
-                        .clientSecret("b5404b6639bd14d2517e5834e3af0a3b")
-                        .redirectUri("http://loafblog.com/auth/weibo/success")
-                        .scopes(Arrays.asList(
-                                AuthWeiboScope.EMAIL.getScope(),
-                                AuthWeiboScope.FRIENDSHIPS_GROUPS_READ.getScope(),
-                                AuthWeiboScope.STATUSES_TO_ME_READ.getScope()
-                        ))
-                        .build());
-                break;
-            case "qq":
-                authRequest = new AuthQqRequest(AuthConfig.builder()
-                        .clientId("")
-                        .clientSecret("")
-                        .redirectUri("http://localhost:8443/oauth/callback/qq")
-                        .build());
-                break;
-            case "wechat_open":
-                authRequest = new AuthWeChatOpenRequest(AuthConfig.builder()
-                        .clientId("")
-                        .clientSecret("")
-                        .redirectUri("http://www.zhyd.me/oauth/callback/wechat")
-                        .build());
-                break;
-            default:
-                break;
-        }
-        if (null == authRequest) {
-            throw new AuthException("未获取到有效的Auth配置");
-        }
-        return authRequest;
-    }
-
-
 }
