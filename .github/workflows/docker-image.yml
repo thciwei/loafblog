@@ -36,7 +36,7 @@ jobs:
           cd ./loafblog_vue_web
           npm install
           npm run build
-          docker build -t  thciwei/loafblog_vue_web .
+          docker build -t  registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog_vue_web .
           cd ..
 
 
@@ -60,11 +60,12 @@ jobs:
           cd ..
 
 
-      - name: Login to DockerHub
+      - name: Login to Aliyun
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: registry.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.ALIYUN_USER_NAME }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
 
 
 
@@ -76,15 +77,15 @@ jobs:
   
          
           echo '======= 开始上传loafblog-blog ======='
-          docker push thciwei/loafblog-blog
+          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-blog
 
 
           echo '======= 开始上传loafblog_vue_web ======='
-          docker push thciwei/loafblog_vue_web
+          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog_vue_web
 
 
           echo '======= 开始上传loafblog-gateway ======='
-          docker push thciwei/loafblog-gateway
+          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-gateway
 
 
 
@@ -92,13 +93,13 @@ jobs:
           echo '=====镜像上传结束======'
           echo '=====开始自动部署======'
 
-      - name: 部署到服务器 Start loafblog
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          password: ${{ secrets.REMOTE_PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: |
-            cd /root/loafblog
-            docker-compose up -d
+#      - name: 部署到服务器 Start loafblog
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.REMOTE_HOST }}
+#          username: ${{ secrets.REMOTE_USER }}
+#          password: ${{ secrets.REMOTE_PASSWORD }}
+#          port: ${{ secrets.PORT }}
+#          script: |
+#            cd /root/loafblog
+#            docker-compose up -d

@@ -131,7 +131,8 @@
                 <version>1.2.0</version>
                 <configuration>
                     <!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
-                    <imageName>thciwei/${project.artifactId}</imageName>
+<!--                    <imageName>thciwei/${project.artifactId}</imageName>-->
+                    <imageName>registry.cn-hangzhou.aliyuncs.com/loafblog/${project.artifactId}</imageName>
                     <dockerDirectory>${project.basedir}/src/main/resources</dockerDirectory>
                     <rm>true</rm>
                     <resources>
