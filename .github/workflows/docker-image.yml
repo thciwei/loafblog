@@ -67,14 +67,11 @@ jobs:
           username: ${{ secrets.ALIYUNJINGXIANG_USER_NAME }}
           password: ${{ secrets.ALIYUNJINGXIANG_PASSWORD }}
 
-
       - name: 推送镜像push Images to DockerHub
         run: |
           docker images
           echo '======= 开始上传镜像 ======='
 
-  
-         
           echo '======= 开始上传loafblog-blog ======='
           docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-blog
                
@@ -86,12 +83,8 @@ jobs:
 
 
 
-
-
-
-
-          echo '=====镜像上传结束======'
-          echo '=====开始自动部署======'
+#          echo '=====镜像上传结束======'
+#          echo '=====开始自动部署======'
 
 #      - name: 部署到服务器 Start loafblog
 #        uses: appleboy/ssh-action@master
