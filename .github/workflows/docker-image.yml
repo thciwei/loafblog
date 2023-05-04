@@ -15,9 +15,9 @@ jobs:
         with:
           java-version: 1.8
 
-#      - uses: actions/setup-node@v2
-#        with:
-#          node-version: '14'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
       - uses: docker/setup-buildx-action@v1
 
@@ -68,7 +68,6 @@ jobs:
           password: ${{ secrets.ALIYUNJINGXIANG_PASSWORD }}
 
 
-
       - name: 推送镜像push Images to DockerHub
         run: |
           docker images
@@ -78,14 +77,15 @@ jobs:
          
           echo '======= 开始上传loafblog-blog ======='
           docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-blog
-
+               
+          echo '======= 开始上传loafblog-gateway ======='
+          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-gateway
 
 #          echo '======= 开始上传loafblog_vue_web ======='
 #          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog_vue_web
 
 
-          echo '======= 开始上传loafblog-gateway ======='
-          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-gateway
+
 
 
 
