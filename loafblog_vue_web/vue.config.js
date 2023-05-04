@@ -12,14 +12,14 @@ let proxyObj = {};
 //     // }
 // }
 
-// proxyObj['/'] = {
-//     ws: true,
-//     target: 'http://localhost:88/api',
-//     changeOrigin: true,
-//     // pathRewrite: {
-//     //     '^/api': ''
-//     // }
-// }
+proxyObj['/'] = {
+    ws: true,
+    target: 'http://localhost:88/api',
+    changeOrigin: true,
+    // pathRewrite: {
+    //     '^/api': ''
+    // }
+}
 
 
 

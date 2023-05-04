@@ -1,0 +1,24 @@
+version: "3.0"
+#docker-compose 文件样例
+services:
+  loafblog-gateway:
+    image: registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-gateway
+    ports:
+      - "88:88"
+    networks:
+      - loaf
+  loafblog-blog:
+    image: registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-blog
+    ports:
+      - "7000:7000"
+    networks:
+      - loaf
+  loafblog_vue_web:
+    image: registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog_vue_web
+    ports:
+      - "8888:8888"
+    networks:
+      - loaf
+
+networks:
+  loaf:

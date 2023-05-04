@@ -15,9 +15,9 @@ jobs:
         with:
           java-version: 1.8
 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+#      - uses: actions/setup-node@v2
+#        with:
+#          node-version: '14'
 
       - uses: docker/setup-buildx-action@v1
 
@@ -29,15 +29,15 @@ jobs:
           echo '======= 开始mvn install&&package ======='
           mvn install -DskipTests=true &&  mvn package -DskipTests=true
 
-      - name: 构建前端镜像Build vue web
-        run: |
-          echo '======= 开始构建前端镜像 ======='
-          echo '======= 开始构建loafblog_vue_web ======='
-          cd ./loafblog_vue_web
-          npm install
-          npm run build
-          docker build -t  registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog_vue_web .
-          cd ..
+#      - name: 构建前端镜像Build vue web
+#        run: |
+#          echo '======= 开始构建前端镜像 ======='
+#          echo '======= 开始构建loafblog_vue_web ======='
+#          cd ./loafblog_vue_web
+#          npm install
+#          npm run build
+#          docker build -t  registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog_vue_web .
+#          cd ..
 
 
 
@@ -80,8 +80,8 @@ jobs:
           docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-blog
 
 
-          echo '======= 开始上传loafblog_vue_web ======='
-          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog_vue_web
+#          echo '======= 开始上传loafblog_vue_web ======='
+#          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog_vue_web
 
 
           echo '======= 开始上传loafblog-gateway ======='
