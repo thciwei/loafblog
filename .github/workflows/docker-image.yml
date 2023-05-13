@@ -24,37 +24,22 @@ jobs:
       - name: Maven Install
         run: |
           echo '======= 开始mvn clean ======='
-          mvn clean
-
+          
           echo '======= 开始mvn install&&package ======='
-          mvn install -DskipTests=true &&  mvn package -DskipTests=true
 
       - name: 构建前端镜像Build vue web
         run: |
           echo '======= 开始构建前端镜像 ======='
           echo '======= 开始构建loafblog_vue_web ======='
-          cd ./loafblog_vue_web
-          npm install
-          npm run build
-          docker build -t  registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog_vue_web .
-          cd ..
-
 
       - name: 构建后端镜像Build Server Images
         run: |
           echo '======= 开始构建后端镜像 ======='
 
           echo '======= 开始构建loafblog-blog ======='
-          cd loafblog-blog
-          mvn docker:build
-          cd ..
-
-
 
           echo '======= 开始构建loafblog-gateway ======='
-          cd loafblog-gateway
-          mvn docker:build
-          cd ..
+
 
 
       - name: Login to Aliyun
@@ -68,14 +53,6 @@ jobs:
         run: |
           docker images
           echo '======= 开始上传镜像 ======='
-
-          echo '======= 开始上传loafblog-blog ======='
-          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-blog
-          
-          echo '======= 开始上传loafblog-gateway ======='
-          docker push registry.cn-hangzhou.aliyuncs.com/loafblog/loafblog-gateway
-
-          echo '======= 开始上传loafblog_vue_web ======='  
 
           echo '=====镜像上传结束======'
           echo '=====开始自动部署======'
